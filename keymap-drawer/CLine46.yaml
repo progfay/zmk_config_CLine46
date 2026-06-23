@@ -19,10 +19,10 @@ layers:
   - D
   - F
   - G
-  - H
-  - J
-  - K
-  - L
+  - {t: H, s: LEFT}
+  - {t: J, s: DOWN}
+  - {t: K, s: UP}
+  - {t: L, s: RIGHT}
   - ;
   - {t: '''', h: SCROLL}
   - LSHIFT
@@ -40,7 +40,7 @@ layers:
   - SCROLL
   - ''
   - '1'
-  - '&lm 3 LALT'
+  - LALT
   - {t: INT2, h: LGUI}
   - SPACE
   - ENTER
@@ -184,7 +184,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Alt+SPACE
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -330,7 +330,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
-- p: [11, 12]
-  k: TAB
-- p: [12, 13]
-  k: Sft+TAB
+- p: [39, 42]
+  k: Alt+SPACE
+  l: [default]
