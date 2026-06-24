@@ -19,10 +19,10 @@ layers:
   - D
   - F
   - G
-  - {t: H, s: LEFT}
-  - {t: J, s: DOWN}
-  - {t: K, s: UP}
-  - {t: L, s: RIGHT}
+  - H
+  - J
+  - K
+  - L
   - ;
   - {t: '''', h: SCROLL}
   - LSHIFT
@@ -39,7 +39,7 @@ layers:
   - ''
   - SCROLL
   - ''
-  - '1'
+  - SYMBOLS
   - LALT
   - {t: INT2, h: LGUI}
   - SPACE
@@ -47,7 +47,7 @@ layers:
   - {t: INT1, h: LGUI}
   - '-'
   - '='
-  '1':
+  SYMBOLS:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -101,13 +101,12 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mkp LCLK'
+  - '&mkp LCLK'
+  - '&mkp RCLK'
+  - '&mkp RCLK'
+  - SCROLL
+  - SCROLL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -115,22 +114,23 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&mkp LCLK'
+  - '&mkp LCLK'
   - '&mkp RCLK'
+  - '&mkp RCLK'
+  - SCROLL
+  - SCROLL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mkp LCLK'
+  - '&mkp LCLK'
+  - '&mkp RCLK'
+  - '&mkp RCLK'
+  - SCROLL
+  - SCROLL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -207,10 +207,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - LEFT
+  - DOWN
+  - UP
+  - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
