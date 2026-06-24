@@ -53,7 +53,7 @@
 &kp TAB     &kp Q  &kp W  &kp E  &kp R     &kp T                                &kp Y          &kp U       &kp I      &kp O        &kp P      &kp BACKSPACE
 &kp LCTRL   &kp A  &kp S  &kp D  &kp F     &kp G                                &kp H          &kp J       &kp K      &kp L        &kp SEMI   &lt 3 SINGLE_QUOTE
 &kp LSHIFT  &kp Z  &kp X  &kp C  &kp V     &kp B                                &kp N          &kp M       &kp COMMA  &kp DOT      &kp SLASH  &none
-            &mo 3  &none  &mo 1  &kp LALT  &mt LGUI INT2  &kp SPACE  &kp ENTER  &mt LGUI INT1                         &kp MINUS    &kp EQUAL
+            &mo 3  &mo 2  &mo 1  &kp LALT  &mt LGUI INT2  &kp SPACE  &kp ENTER  &mt LGUI INT1                         &kp MINUS    &kp EQUAL
             >;
         };
 
@@ -90,10 +90,10 @@
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans    &trans    &trans  &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans    &trans    &trans  &trans     &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                      &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans
             >;
         };
 
