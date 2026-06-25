@@ -39,20 +39,20 @@ layers:
   - ''
   - SCROLL
   - MOUSE
-  - SYMBOLS
+  - {t: ▽, type: trans}
   - LALT
   - {t: INT2, h: LGUI}
-  - SPACE
+  - {t: SPACE, h: SYMBOLS}
   - ENTER
   - {t: INT1, h: LGUI}
   - '-'
   - '='
   SYMBOLS:
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '!'
+  - '@'
+  - '#'
+  - $
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -61,17 +61,17 @@ layers:
   - '3'
   - \
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '%'
+  - ^
+  - '&'
+  - '*'
   - {t: ▽, type: trans}
   - '['
   - ']'
   - '4'
   - '5'
   - '6'
-  - {t: ▽, type: trans}
+  - '`'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -86,10 +86,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - KP 0
@@ -333,3 +333,9 @@ combos:
 - p: [39, 42]
   k: Alt+SPACE
   l: [default]
+- p: [20, 21]
+  k: BACKSPACE
+  l: [default]
+- p: [20, 21]
+  k: DELETE
+  l: [SCROLL]
