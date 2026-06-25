@@ -77,7 +77,7 @@
         SYMBOLS {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans                &trans                 &kp NUMBER_1  &kp NUMBER_2     &kp NUMBER_3     &kp BACKSLASH
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NUMBER_4  &kp NUMBER_5     &kp NUMBER_6     &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NUMBER_4  &kp NUMBER_5     &kp NUMBER_6     &kp GRAVE
 &trans  &trans  &trans  &trans  &trans  &trans                  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_7  &kp NUMBER_8     &kp KP_NUMBER_9  &trans
         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                                                     &kp KP_NUMBER_0  &kp KP_DOT
             >;
