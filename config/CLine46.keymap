@@ -43,6 +43,22 @@
             bindings = <&kp LA(SPACE)>;
             layers = <0>;
         };
+
+        // K + L -> backspace
+        combo_backspace {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            bindings = <&kp BACKSPACE>;
+            layers = <0>;
+        };
+
+        // K + L while holding &mo 3 (SCROLL layer) -> delete
+        combo_delete {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            bindings = <&kp DELETE>;
+            layers = <3>;
+        };
     };
 
     keymap {
