@@ -86,7 +86,7 @@
 
         layer_2 {
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N4                    &kp N6    &kp N7     &kp N8     &kp N9  &kp N0  &kp BSLH
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                    &kp N6    &kp N7     &kp N8     &kp N9  &kp N0  &kp BSLH
 &trans     &trans  &trans  &trans  &mkp LCLK  &kp LBKT                  &kp RBKT  &mkp LCLK  &mkp RCLK  &trans  &trans  &mo 3
 &trans     &trans  &trans  &trans  &trans     &kp LPAR                  &kp RPAR  &trans     &trans     &trans  &trans  &trans
            &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans                          &trans  &trans
@@ -104,6 +104,8 @@
         };
 
 
+        // unused layer (layer_4, 5, 6 are available)
+        /*
         layer_4 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -112,25 +114,6 @@
         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans
             >;
         };
-
-
-        layer_5 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans
-            >;
-        };
-
-
-        layer_6 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans
-            >;
-        };
+        */
     };
 };
