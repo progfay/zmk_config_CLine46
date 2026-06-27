@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: CLine46}
 layers:
-  default:
-  - TAB
+  Base:
+  - ⇥
   - Q
   - W
   - E
@@ -12,8 +12,8 @@ layers:
   - I
   - O
   - P
-  - BACKSPACE
-  - LCTRL
+  - ⌫
+  - ⌃
   - A
   - S
   - D
@@ -22,10 +22,10 @@ layers:
   - H
   - J
   - K
-  - L
-  - {t: ;, h: '3'}
-  - {t: '''', h: '3'}
-  - LSHIFT
+  - {t: L, h: Scroll}
+  - ;
+  - ''''
+  - ⇧
   - Z
   - X
   - C
@@ -37,17 +37,17 @@ layers:
   - .
   - /
   - ''
-  - '3'
+  - Scroll
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&lm 1 LALT'
-  - {t: LANG2, h: LGUI}
-  - {t: SPACE, h: '2'}
-  - {t: ENTER, h: '1'}
-  - {t: LANG1, h: LGUI}
+  - {t: ⌥, h: Nav}
+  - {t: EISU, h: ⌘}
+  - {t: ␣, h: Num}
+  - {t: ⏎, h: Nav}
+  - {t: KANA, h: ⌘}
   - '-'
   - '='
-  '1':
+  Arrow:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -66,10 +66,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - LEFT
-  - DOWN
-  - UP
-  - RIGHT
+  - ←
+  - ↓
+  - ↑
+  - →
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -87,14 +87,14 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - LALT
+  - ⌥
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: SPACE, type: held}
+  - ␣
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  '2':
+  Symbol:
   - '`'
   - '1'
   - '2'
@@ -111,14 +111,14 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mkp LCLK'
+  - L Click
   - '['
   - ']'
-  - '&mkp LCLK'
-  - '&mkp RCLK'
+  - L Click
+  - R Click
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '3'
+  - Scroll
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -136,13 +136,13 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  '3':
-  - ESC
+  - {t: ▽, type: trans}
+  Scroll:
+  - ⎋
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: BT, h: '0'}
@@ -153,7 +153,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - F17
-  - DELETE
+  - ⌦
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -163,8 +163,8 @@ layers:
   - F13
   - F14
   - F15
-  - F16
-  - {type: held}
+  - {t: F16, type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -190,8 +190,8 @@ layers:
   - {t: ▽, type: trans}
 combos:
 - p: [20, 21]
-  k: BACKSPACE
-  l: [default]
+  k: ⌫
+  l: [Base]
 - p: [20, 21]
-  k: DELETE
-  l: ['3']
+  k: ⌦
+  l: [Scroll]
