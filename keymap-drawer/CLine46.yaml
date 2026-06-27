@@ -23,7 +23,7 @@ layers:
   - J
   - K
   - L
-  - ;
+  - {t: ;, h: '3'}
   - {t: '''', h: '3'}
   - LSHIFT
   - Z
@@ -40,11 +40,11 @@ layers:
   - '3'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - LALT
-  - {t: INT2, h: LGUI}
+  - '&lm 1 LALT'
+  - {t: LANG2, h: LGUI}
   - {t: SPACE, h: '2'}
   - {t: ENTER, h: '1'}
-  - {t: INT1, h: LGUI}
+  - {t: LANG1, h: LGUI}
   - '-'
   - '='
   '1':
@@ -87,10 +87,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - LALT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
+  - {t: SPACE, type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -148,12 +148,12 @@ layers:
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - BT CLR
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - F17
-  - BT CLR
+  - DELETE
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -164,8 +164,8 @@ layers:
   - F14
   - F15
   - F16
-  - {t: ▽, type: trans}
   - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -189,9 +189,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
-- p: [39, 42]
-  k: Alt+SPACE
-  l: [default]
 - p: [20, 21]
   k: BACKSPACE
   l: [default]
