@@ -1,27 +1,10 @@
-# keymap-drawer 設定ファイル
-# .github/workflows/draw.yml の config_path から参照される。
-# 仕様: https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
-#
-# 方針メモ:
-# - zmk_keycode_map は「丸ごと置換」になり ! @ # [ ] ( ) ; などの組み込み変換を
-#   失うため使わない。代わりに raw_binding_map で必要なキーだけ追加上書きする。
-# - レイヤー名(Base/Nav/Num/System)は keymap 側の各レイヤー display-name で定義。
-#   これによりヘッダー見出しと mo/lt のレイヤー参照表示が両方とも命名される
-#   （layer_legend_map はヘッダーを改名しないためここでは使わない）。
-
 draw_config:
-  # レイヤーを縦1列に並べる
   n_columns: 1
-  # GitHub のライト/ダーク表示に追従（SVG に CSS media query を埋め込む）
   dark_mode: auto
-  # 凡例中にレイヤー名を見つけたら下線を引いてレイヤー起動キーだと示す
   style_layer_activators: true
 
 parse_config:
-  # 個別バインディングの表示上書き（デフォルトのキーコード辞書はそのまま活かす）。
-  # 値は文字列、または tap/hold を分ける {t: ..., h: ...} 辞書。
   raw_binding_map:
-    # --- 修飾キー・編集キーをアイコン(記号)化 ---
     "&kp LCTRL": "⌃"
     "&kp LSHIFT": "⇧"
     "&kp LALT": "⌥"
@@ -31,23 +14,18 @@ parse_config:
     "&kp ESC": "⎋"
     "&kp SPACE": "␣"
 
-    # --- 矢印キー ---
     "&kp LEFT": "←"
     "&kp DOWN": "↓"
     "&kp UP": "↑"
     "&kp RIGHT": "→"
 
-    # --- mod-tap: macOS の日本語IME切替（tap=英数/かな, hold=⌘） ---
     "&mt LGUI LANG2": { t: "EISU", h: "⌘" }
     "&mt LGUI LANG1": { t: "KANA", h: "⌘" }
 
-    # --- layer-tap: tap をアイコン化、hold はレイヤー名 ---
-    "&lt 1 ENTER": { t: "⏎", h: "Nav" }
+    "&lt 1 ENTER": { t: "⏎", h: "Arrow" }
     "&lt 2 SPACE": { t: "␣", h: "Num" }
 
-    # --- lm マクロ: 押している間 レイヤー(Nav)切替 + ⌥ を同時押し ---
-    "&lm 1 LALT": { t: "⌥", h: "Nav" }
+    "&lm 1 LALT": { t: "⌥", h: "Arrow" }
 
-    # --- マウスクリック ---
     "&mkp LCLK": "L Click"
     "&mkp RCLK": "R Click"
