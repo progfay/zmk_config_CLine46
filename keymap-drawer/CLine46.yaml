@@ -118,7 +118,7 @@ layers:
   - R Click
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Scroll
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
