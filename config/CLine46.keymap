@@ -36,14 +36,6 @@
     combos {
         compatible = "zmk,combos";
 
-        // LALT + ENTER -> alt+space
-        combo_alt_space {
-            timeout-ms = <50>;
-            key-positions = <39 42>;
-            bindings = <&kp LA(SPACE)>;
-            layers = <0>;
-        };
-
         // K + L -> backspace
         combo_backspace {
             timeout-ms = <50>;
@@ -66,20 +58,20 @@
 
         default_layer {
             bindings = <
-&kp TAB     &kp Q  &kp W   &kp E   &kp R     &kp T                                    &kp Y          &kp U       &kp I      &kp O        &kp P      &kp BACKSPACE
-&kp LCTRL   &kp A  &kp S   &kp D   &kp F     &kp G                                    &kp H          &kp J       &kp K      &kp L        &kp SEMI   &lt 3 SINGLE_QUOTE
-&kp LSHIFT  &kp Z  &kp X   &kp C   &kp V     &kp B                                    &kp N          &kp M       &kp COMMA  &kp DOT      &kp SLASH  &none
-            &mo 3  &trans  &trans  &kp LALT  &mt LGUI INT2  &lt 2 SPACE  &lt 1 ENTER  &mt LGUI INT1                         &kp MINUS    &kp EQUAL
+&kp TAB     &kp Q  &kp W   &kp E   &kp R       &kp T                                     &kp Y           &kp U       &kp I      &kp O        &kp P       &kp BACKSPACE
+&kp LCTRL   &kp A  &kp S   &kp D   &kp F       &kp G                                     &kp H           &kp J       &kp K      &kp L        &lt 3 SEMI  &lt 3 SINGLE_QUOTE
+&kp LSHIFT  &kp Z  &kp X   &kp C   &kp V       &kp B                                     &kp N           &kp M       &kp COMMA  &kp DOT      &kp SLASH   &none
+            &mo 3  &trans  &trans  &lm 1 LALT  &mt LGUI LANG2  &lt 2 SPACE  &lt 1 ENTER  &mt LGUI LANG1                         &kp MINUS    &kp EQUAL
             >;
         };
 
 
         layer_1 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans    &trans    &trans  &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans    &trans    &trans  &trans     &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                      &trans     &trans
+&trans  &trans  &trans  &trans  &trans    &trans                        &trans    &trans    &trans  &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans                        &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans                        &trans    &trans    &trans  &trans     &trans  &trans
+           &trans  &trans  &trans  &kp LALT  &trans  &trans  &kp SPACE  &trans                      &trans     &trans
             >;
         };
 
@@ -96,9 +88,9 @@
 
         layer_3 {
             bindings = <
-&kp ESC  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &trans                  &trans   &trans   &trans   &trans   &kp F17  &bt BT_CLR
-&trans   &trans  &trans  &kp F19       &trans        &trans                  &kp F13  &kp F14  &kp F15  &kp F16  &trans   &trans
-&trans   &trans  &trans  &trans        &trans        &trans                  &kp F18  &trans   &trans   &trans   &trans   &trans
+&kp ESC  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &trans                  &bt BT_CLR   &trans   &trans   &trans   &kp F17  &kp DELETE
+&trans   &trans  &trans  &kp F19       &trans        &trans                  &kp F13      &kp F14  &kp F15  &kp F16  &trans   &trans
+&trans   &trans  &trans  &trans        &trans        &trans                  &kp F18      &trans   &trans   &trans   &trans   &trans
          &trans  &trans  &trans        &trans        &trans  &trans  &trans  &trans                     &trans   &trans
             >;
         };
