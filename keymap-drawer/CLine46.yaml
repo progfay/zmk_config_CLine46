@@ -40,10 +40,10 @@ layers:
   - Scroll
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ⌥, h: Nav}
+  - {t: ⌥, h: Arrow}
   - {t: EISU, h: ⌘}
   - {t: ␣, h: Num}
-  - {t: ⏎, h: Nav}
+  - {t: ⏎, h: Arrow}
   - {t: KANA, h: ⌘}
   - '-'
   - '='
