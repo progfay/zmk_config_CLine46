@@ -96,7 +96,7 @@
 
         layer_3 {
             bindings = <
-&kp ESC  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &trans                  &trans   &trans   &trans   &trans   &kp F17  &studio_unlock
+&kp ESC  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &trans                  &trans   &trans   &trans   &trans   &kp F17  &trans
 &trans   &trans  &trans  &kp F19       &trans        &trans                  &kp F13  &kp F14  &kp F15  &kp F16  &trans   &trans
 &trans   &trans  &trans  &trans        &trans        &trans                  &kp F18  &trans   &trans   &trans   &trans   &trans
          &trans  &trans  &trans        &trans        &trans  &trans  &trans  &trans                     &trans   &trans
