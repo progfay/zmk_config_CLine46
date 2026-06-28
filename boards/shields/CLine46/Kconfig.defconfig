@@ -32,6 +32,33 @@ config NFCT_PINS_AS_GPIOS
 config ZMK_SPLIT
     default y
 
+# Battery reporting / sleep (両半身共通)
+config ZMK_BATTERY_REPORTING
+    default y
+
+config ZMK_IDLE_TIMEOUT
+    default 30000
+
+config ZMK_SLEEP
+    default y
+
+config ZMK_IDLE_SLEEP_TIMEOUT
+    default 7200000
+
+# NiMH (non-LiPo) battery management (両半身共通)
+config ZMK_NON_LIPO_BATTERY_MANAGEMENT
+    default y
+
+config ZMK_NON_LIPO_MAX_MV
+    default 1360
+
+config ZMK_NON_LIPO_MIN_MV
+    default 1020
+
+config ZMK_NON_LIPO_LOW_MV
+    default 1000
+
+# RGBLED widget battery thresholds (両半身共通)
 config RGBLED_WIDGET_BATTERY_LEVEL_HIGH
     default 30
 
