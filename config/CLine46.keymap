@@ -81,10 +81,10 @@
         layer_2 {
             display-name = "Symbol";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                    &kp N6    &kp N7     &kp N8     &kp N9  &kp N0  &kp BSLH
-&trans     &trans  &trans  &trans  &mkp LCLK  &kp LBKT                  &kp RBKT  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
-&trans     &trans  &trans  &trans  &trans     &kp LPAR                  &kp RPAR  &trans     &trans     &trans  &trans  &trans
-           &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans                          &trans  &trans
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                    &kp N6    &kp N7           &kp N8        &kp N9  &kp N0  &kp BSLH
+&trans     &trans  &trans  &trans  &mkp LCLK  &kp LBKT                  &kp RBKT  &mkp LCLK        &mkp RCLK     &trans  &trans  &trans
+&trans     &trans  &trans  &trans  &trans     &kp LPAR                  &kp RPAR  &&msc SCRL_DOWN  &msc SCRL_UP  &trans  &trans  &trans
+           &trans  &trans  &trans  &trans     &trans    &trans  &trans  &trans                                   &trans  &trans
             >;
         };
 
@@ -95,7 +95,7 @@
 &kp ESC  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &bt BT_CLR   &trans   &trans   &trans   &kp F17  &kp DELETE
 &trans   &trans        &trans        &kp F19       &trans        &trans                        &kp F13      &kp F14  &kp F15  &kp F16  &trans   &trans
 &trans   &trans        &trans        &trans        &trans        &trans                        &kp F18      &trans   &trans   &trans   &trans   &trans
-         &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans                     &trans   &trans
+         &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans                         &trans   &trans
             >;
         };
 
