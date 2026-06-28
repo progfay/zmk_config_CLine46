@@ -126,8 +126,8 @@ layers:
   - {t: ▽, type: trans}
   - (
   - )
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Scroll ↓
+  - Scroll ↑
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -143,11 +143,11 @@ layers:
   - {t: ▽, type: trans}
   Scroll:
   - ⎋
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
-  - {t: ▽, type: trans}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
   - BT CLR
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
