@@ -28,3 +28,6 @@ parse_config:
 
     "&mkp LCLK": "L Click"
     "&mkp RCLK": "R Click"
+
+    "&msc SCRL_DOWN": "Scroll ↓"
+    "&msc SCRL_UP": "Scroll ↑"
