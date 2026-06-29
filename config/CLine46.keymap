@@ -39,9 +39,10 @@
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings
-                = <&macro_press &mo 2 &kp LSHIFT &kp LANG1>
+                = <&macro_tap &kp LANG1>
+                , <&macro_press &mo 2 &kp RSHIFT>
                 , <&macro_pause_for_release>
-                , <&macro_release &kp LANG1 &kp LSHIFT &mo 2>
+                , <&macro_release &kp RSHIFT &mo 2>
                 ;
             label = "LANG1_SH2";
         };
@@ -53,9 +54,10 @@
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LGUI &kp LANG2>
+                = <&macro_tap &kp LANG2>
+                , <&macro_press &kp LGUI>
                 , <&macro_pause_for_release>
-                , <&macro_release &kp LANG2 &kp LGUI>
+                , <&macro_release &kp LGUI>
                 ;
             label = "LANG2_GUI";
         };
