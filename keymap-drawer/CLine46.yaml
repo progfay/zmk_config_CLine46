@@ -44,7 +44,7 @@ layers:
   - {t: EISU, h: ⌘}
   - {t: ␣, h: Num}
   - {t: ⏎, h: Arrow}
-  - {t: KANA, h: ⌘}
+  - {t: KANA, h: ⇧ Arrow}
   - '-'
   - '='
   Arrow:
@@ -106,14 +106,11 @@ layers:
   - '8'
   - '9'
   - '0'
-  - \
+  - ⌫
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - L Click
-  - '['
-  - ']'
+  - '4'
+  - '5'
+  - '6'
   - L Click
   - R Click
   - {t: ▽, type: trans}
@@ -121,18 +118,21 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - \
   - {t: ▽, type: trans}
+  - '7'
+  - '8'
+  - '9'
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - (
-  - )
+  - '['
+  - ']'
   - Scroll ↓
   - Scroll ↑
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '0'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
