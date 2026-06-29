@@ -31,6 +31,34 @@
                 ;
             label = "LAYER_MOD";
         };
+
+        // hold: activate layer 1 while pressing Shift + LANG1
+        lang1_sh1: lang1_sh1 {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &mo 1 &kp LSHIFT &kp LANG1>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LANG1 &kp LSHIFT &mo 1>
+                ;
+            label = "LANG1_SH1";
+        };
+
+        // press LANG2 and LGUI together
+        lang2_gui: lang2_gui {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI &kp LANG2>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LANG2 &kp LGUI>
+                ;
+            label = "LANG2_GUI";
+        };
     };
 
     combos {
@@ -59,10 +87,10 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp TAB     &kp Q  &kp W   &kp E   &kp R       &kp T                                     &kp Y      &kp U       &kp I      &kp O        &kp P       &kp BACKSPACE
-&kp LCTRL   &kp A  &kp S   &kp D   &kp F       &kp G                                     &kp H      &kp J       &kp K      &lt 3 L      &kp SEMI    &kp SINGLE_QUOTE
-&kp LSHIFT  &kp Z  &kp X   &kp C   &kp V       &kp B                                     &kp N      &kp M       &kp COMMA  &kp DOT      &kp SLASH   &none
-            &mo 3  &trans  &trans  &lm 1 LALT  &mt LGUI LANG2  &lt 2 SPACE  &lt 1 ENTER  &kp LANG1                         &kp MINUS    &kp EQUAL
+&kp TAB     &kp Q  &kp W   &kp E   &kp R       &kp T                                 &kp Y       &kp U       &kp I      &kp O        &kp P       &kp BACKSPACE
+&kp LCTRL   &kp A  &kp S   &kp D   &kp F       &kp G                                 &kp H       &kp J       &kp K      &lt 3 L      &kp SEMI    &kp SINGLE_QUOTE
+&kp LSHIFT  &kp Z  &kp X   &kp C   &kp V       &kp B                                 &kp N       &kp M       &kp COMMA  &kp DOT      &kp SLASH   &none
+            &mo 3  &trans  &trans  &lm 1 LALT  &lang2_gui  &lt 2 SPACE  &lt 1 ENTER  &lang1_sh1                       &kp MINUS    &kp EQUAL
             >;
         };
 
@@ -81,10 +109,10 @@
         layer_2 {
             display-name = "Symbol";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                    &kp N6    &kp N7        &kp N8          &kp N9  &kp N0  &kp BSLH
-&trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &kp LBKT                  &kp RBKT  &mkp LCLK     &mkp RCLK       &trans  &trans  &trans
-&trans     &kp N7  &kp N8  &kp N9  &trans     &kp LPAR                  &kp RPAR  &msc SCRL_DOWN  &msc SCRL_UP  &trans  &trans  &trans
-           &trans  &kp N0  &trans  &trans     &trans    &trans  &trans  &trans                                   &trans  &trans
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                     &kp N6    &kp N7          &kp N8        &kp N9  &kp N0  &kp BACKSPACE
+&trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &mkp RCLK                  &trans    &trans          &trans        &trans  &trans  &kp BSLH
+&trans     &kp N7  &kp N8  &kp N9  &trans     &kp LBKT                   &kp RBKT  &msc SCRL_DOWN  &msc SCRL_UP  &trans  &trans  &trans
+           &trans  &kp N0  &trans  &trans     &trans     &trans  &trans  &trans                                   &trans  &trans
             >;
         };
 

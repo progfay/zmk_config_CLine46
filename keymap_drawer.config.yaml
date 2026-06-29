@@ -18,13 +18,13 @@ parse_config:
     "&kp UP": "↑"
     "&kp RIGHT": "→"
 
-    "&mt LGUI LANG2": { t: "EISU", h: "⌘" }
-    "&mt LGUI LANG1": { t: "KANA", h: "⌘" }
-
     "&lt 1 ENTER": { t: "⏎", h: "Arrow" }
     "&lt 2 SPACE": { t: "␣", h: "Num" }
 
     "&lm 1 LALT": { t: "⌥", h: "Arrow" }
+
+    "&lang1_sh1": { t: "KANA", h: "⇧ Arrow" }
+    "&lang2_gui": { t: "EISU", h: "⌘" }
 
     "&mkp LCLK": "L Click"
     "&mkp RCLK": "R Click"
