@@ -19,7 +19,7 @@ parse_config:
     "&kp RIGHT": "→"
 
     "&lt 1 ENTER": { t: "⏎", h: "Arrow" }
-    "&lt 2 SPACE": { t: "␣", h: "Num" }
+    "&lt 1 SPACE": { t: "␣", h: "Num" }
 
     "&h_morph": { t: "h", h: "←" }
     "&j_morph": { t: "j", h: "↓" }
