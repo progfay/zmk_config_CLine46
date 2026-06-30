@@ -13,16 +13,16 @@ layers:
   - O
   - P
   - ⌫
-  - {t: ⌃, h: Arrow}
+  - ⌃
   - A
   - S
   - D
   - F
   - G
-  - H
-  - J
-  - K
-  - {t: L, h: Scroll}
+  - {t: h, h: ←}
+  - {t: j, h: ↓}
+  - {t: k, h: ↑}
+  - {t: l, h: →}
   - ;
   - ''''
   - ⇧
@@ -40,60 +40,13 @@ layers:
   - Scroll
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ⌥, h: Arrow}
+  - ⌥
   - {t: EISU, h: ⌘}
   - {t: ␣, h: Num}
-  - {t: ⏎, h: Arrow}
+  - {t: ⏎, h: Arrow, s: ␣}
   - {t: KANA, h: ⇧ Num}
   - '-'
   - '='
-  Arrow:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ⌃
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ←
-  - ↓
-  - ↑
-  - →
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ⌥
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ␣
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   Num:
   - '`'
   - '1'
@@ -114,8 +67,8 @@ layers:
   - L Click
   - R Click
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - L Click
+  - R Click
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - \
@@ -163,7 +116,7 @@ layers:
   - F13
   - F14
   - F15
-  - {t: F16, type: held}
+  - F16
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -178,7 +131,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
