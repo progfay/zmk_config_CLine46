@@ -12,10 +12,23 @@
 };
 
 &msc_input_listener {
-    input-processors = <&zip_scroll_scaler 3 1>;  // スクロール量を3倍
+    // 端数を累積する自作 scaler で滑らかに。倍率は控えめにして
+    // 高解像度ホイール(CONFIG_ZMK_POINTING_SMOOTH_SCROLLING)側に滑らかさを任せる
+    input-processors = <&zip_scroll_smooth 1 2>;  // 必要に応じて 1/2 ～ 2/1 で調整
 };
 
 / {
+    input_processors {
+        // INPUT_REL_WHEEL の端数を切り捨てず累積して滑らかにする scaler
+        zip_scroll_smooth: zip_scroll_smooth {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
+    };
+
     behaviors {
         // tap: the given key / hold: RSHIFT + layer 1
         lang1_sh2: lang1_sh2 {
