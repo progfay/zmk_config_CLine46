@@ -28,13 +28,21 @@
         };
 
         // hjkl morph into arrows on CTRL/ALT (ctrl masked, alt kept).
-        // GUI disables the morph, so gui+ctrl+h stays ⌘⌃h.
+        // GUI disables the morph, so gui+ctrl+h stays ⌘⌃h,
+        // except alt+gui+h which morphs into alt+gui+← (via h_gui).
         h_morph: h_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&h_arrow>, <&kp H>;
+            bindings = <&h_arrow>, <&h_gui>;
             mods = <(MOD_LGUI)>;
             keep-mods = <(MOD_LGUI)>;
+        };
+        h_gui: h_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp LEFT>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
         h_arrow: h_arrow {
             compatible = "zmk,behavior-mod-morph";
@@ -46,9 +54,16 @@
         j_morph: j_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&j_arrow>, <&kp J>;
+            bindings = <&j_arrow>, <&j_gui>;
             mods = <(MOD_LGUI)>;
             keep-mods = <(MOD_LGUI)>;
+        };
+        j_gui: j_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp J>, <&kp DOWN>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
         j_arrow: j_arrow {
             compatible = "zmk,behavior-mod-morph";
@@ -60,9 +75,16 @@
         k_morph: k_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&k_arrow>, <&kp K>;
+            bindings = <&k_arrow>, <&k_gui>;
             mods = <(MOD_LGUI)>;
             keep-mods = <(MOD_LGUI)>;
+        };
+        k_gui: k_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp K>, <&kp UP>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
         k_arrow: k_arrow {
             compatible = "zmk,behavior-mod-morph";
@@ -74,9 +96,16 @@
         l_morph: l_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&l_arrow>, <&lt 2 L>;
+            bindings = <&l_arrow>, <&l_gui>;
             mods = <(MOD_LGUI)>;
             keep-mods = <(MOD_LGUI)>;
+        };
+        l_gui: l_gui {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lt 2 L>, <&kp RIGHT>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
         l_arrow: l_arrow {
             compatible = "zmk,behavior-mod-morph";
