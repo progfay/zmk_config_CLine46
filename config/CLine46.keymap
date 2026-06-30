@@ -11,7 +11,29 @@
     quick-tap-ms = <0>;
 };
 
+&msc_input_listener {
+    // 速度値(MOVE_UP/DOWN)は大きいまま滑らかさを確保し、
+    // ホイール出力を track-remainders 付きで割って移動量だけ小さくする
+    input-processors = <&zip_scroll_smooth 1 2>;  // 1/2。さらに小さくするなら 1 3 など
+};
+
+&msc {
+    acceleration-exponent = <1>;     // 0=等速 / 1=等加速度。短押しを控えめにする
+    time-to-max-speed-ms = <400>;    // 最高速まで 400ms かけて加速(既定300)
+};
+
 / {
+    input_processors {
+        // INPUT_REL_WHEEL の端数を切り捨てず累積して滑らかに割る scaler
+        zip_scroll_smooth: zip_scroll_smooth {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
+    };
+
     behaviors {
         // tap: the given key / hold: RSHIFT + layer 1
         lang1_sh2: lang1_sh2 {
@@ -209,9 +231,9 @@
         layer_1 {
             display-name = "Num";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                     &kp N6     &kp N7        &kp N8          &kp N9  &kp N0  &kp BACKSPACE
-&trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &mkp RCLK                  &trans     &mkp LCLK     &mkp RCLK       &trans  &trans  &kp BSLH
-&trans     &kp N7  &kp N8  &kp N9  &trans     &kp LBKT                   &kp RBKT   &msc MOVE_UP  &msc MOVE_DOWN  &trans  &trans  &trans
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                     &kp N6     &kp N7          &kp N8        &kp N9  &kp N0  &kp BACKSPACE
+&trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &mkp RCLK                  &trans     &mkp LCLK       &mkp RCLK     &trans  &trans  &kp BSLH
+&trans     &kp N7  &kp N8  &kp N9  &trans     &kp LBKT                   &kp RBKT   &msc MOVE_DOWN  &msc MOVE_UP  &trans  &trans  &trans
            &trans  &kp N0  &trans  &trans     &trans     &trans  &trans  &trans                                   &trans  &trans
             >;
         };

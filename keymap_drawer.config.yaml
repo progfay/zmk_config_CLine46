@@ -32,5 +32,5 @@ parse_config:
     "&mkp LCLK": "L Click"
     "&mkp RCLK": "R Click"
 
-    "&msc MOVE_UP": "Scroll ↓"
-    "&msc MOVE_DOWN": "Scroll ↑"
+    "&msc MOVE_DOWN": "Scroll ↓"
+    "&msc MOVE_UP": "Scroll ↑"
