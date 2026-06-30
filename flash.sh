@@ -27,9 +27,9 @@ WORKDIR=""
 # (bash 3.2 には連想配列が無いため関数で引く)
 uf2_file() {
   case "$1" in
-    left)  echo "CLine46_L rgbled_adapter seeeduino_xiao_ble.uf2" ;;
-    right) echo "CLine46_R rgbled_adapter seeeduino_xiao_ble.uf2" ;;
-    reset) echo "settings_reset seeeduino_xiao_ble.uf2" ;;
+    left)  echo "CLine46_L rgbled_adapter-seeeduino_xiao_ble-zmk.uf2" ;;
+    right) echo "CLine46_R rgbled_adapter-seeeduino_xiao_ble-zmk.uf2" ;;
+    reset) echo "settings_reset-seeeduino_xiao_ble-zmk.uf2" ;;
     *)     return 1 ;;
   esac
 }
