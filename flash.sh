@@ -201,7 +201,7 @@ flash_one() {
   warn "別のキーボードがブートローダーで接続中なら取り外してください。"
 
   local vol
-  vol=$(wait_for_bootloader) || { warn "[$label] ブートローダーを検出できませんでした。スキップします。"; return 1; }
+  vol=$(wait_for_bootloader) || die "[$label] ブートローダーを検出できませんでした。"
   ok "[$label] ブートローダー検出: $vol"
 
   info "[$label] 書き込み中..."
@@ -228,18 +228,14 @@ run_flash() {
   for pair in "${pairs[@]}"; do keys+=("${pair##*|}"); done
   download_artifact "${keys[@]}"
 
-  local failed=()
+  # ブートローダー検出に失敗した時点で flash_one が exit 1 するため、
+  # ここまで到達すればすべての書き込みが成功している。
   for pair in "${pairs[@]}"; do
-    flash_one "${pair%%|*}" "${pair##*|}" || failed+=("${pair%%|*}")
+    flash_one "${pair%%|*}" "${pair##*|}"
   done
 
   echo
-  if [ ${#failed[@]} -eq 0 ]; then
-    ok "すべての書き込みが完了しました 🎉"
-  else
-    warn "未完了: ${failed[*]}"
-    exit 1
-  fi
+  ok "すべての書き込みが完了しました 🎉"
 }
 
 # ---- エントリポイント -------------------------------------------------------
