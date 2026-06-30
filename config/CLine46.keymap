@@ -11,6 +11,10 @@
     quick-tap-ms = <0>;
 };
 
+&msc_input_listener {
+    input-processors = <&zip_scroll_scaler 3 1>;  // スクロール量を3倍
+};
+
 / {
     behaviors {
         // tap: the given key / hold: RSHIFT + layer 1
