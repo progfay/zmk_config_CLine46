@@ -13,7 +13,7 @@ layers:
   - O
   - P
   - ⌫
-  - ⌃
+  - {t: ⌃, h: Arrow}
   - A
   - S
   - D
@@ -60,7 +60,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - ⌃
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
