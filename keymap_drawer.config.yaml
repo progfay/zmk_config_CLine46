@@ -13,16 +13,21 @@ parse_config:
     "&kp ESC": "⎋"
     "&kp SPACE": "␣"
 
-    "&arw_left": "←"
-    "&arw_down": "↓"
-    "&arw_up": "↑"
-    "&arw_right": "→"
+    "&kp LEFT": "←"
+    "&kp DOWN": "↓"
+    "&kp UP": "↑"
+    "&kp RIGHT": "→"
 
     "&lt 1 ENTER": { t: "⏎", h: "Arrow" }
     "&lt 2 SPACE": { t: "␣", h: "Num" }
 
-    "&lm 1 LCTRL": { t: "⌃", h: "Arrow" }
+    "&lm 4 LCTRL": { t: "⌃", h: "CtrlArrow" }
     "&lm 1 LALT": { t: "⌥", h: "Arrow" }
+
+    "&cdrop LEFT": "←"
+    "&cdrop DOWN": "↓"
+    "&cdrop UP": "↑"
+    "&cdrop RIGHT": "→"
 
     "&lang1_sh2 0 LANG1": { t: "KANA", h: "⇧ Num" }
     "&lang2_gui": { t: "EISU", h: "⌘" }
