@@ -44,7 +44,7 @@ layers:
   - {t: EISU, h: ⌘}
   - {t: ␣, h: Num}
   - {t: ⏎, h: Arrow}
-  - {t: KANA, h: ⇧ Arrow}
+  - {t: KANA, h: ⇧ Num}
   - '-'
   - '='
   Arrow:
@@ -94,7 +94,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  Symbol:
+  Num:
   - '`'
   - '1'
   - '2'
