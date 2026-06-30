@@ -70,7 +70,7 @@
         <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>;       // X軸反転
 
     scroller {
-        layers = <3>;
+        layers = <2>;
         input-processors =
             <&zip_xy_to_scroll_mapper>,                                                     // スクロールモードに変更
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,  // スクロールのX軸・Y軸反転
