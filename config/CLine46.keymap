@@ -4,6 +4,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/modifiers.h>
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
@@ -13,6 +14,38 @@
 
 / {
     behaviors {
+        // arrow keys on layer 1 (Arrow):
+        //   - without LGUI: strip ctrl -> plain arrow (&ctrl_off)
+        //   - with LGUI:    keep ctrl & LGUI -> ctrl + LGUI + arrow (&kp)
+        arw_left: arw_left {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&ctrl_off LEFT>, <&kp LEFT>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        arw_down: arw_down {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&ctrl_off DOWN>, <&kp DOWN>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        arw_up: arw_up {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&ctrl_off UP>, <&kp UP>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+        arw_right: arw_right {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&ctrl_off RIGHT>, <&kp RIGHT>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
+
         // tap: the given key / hold: RSHIFT + layer 2
         lang1_sh2: lang1_sh2 {
             compatible = "zmk,behavior-hold-tap";
@@ -132,7 +165,7 @@
             display-name = "Arrow";
             bindings = <
 &trans     &trans  &trans  &trans  &trans    &trans                     &trans          &trans          &trans          &trans           &trans  &trans
-&kp LCTRL  &trans  &trans  &trans  &trans    &trans                     &ctrl_off LEFT  &ctrl_off DOWN  &ctrl_off UP    &ctrl_off RIGHT  &trans  &trans
+&kp LCTRL  &trans  &trans  &trans  &trans    &trans                     &arw_left  &arw_down  &arw_up  &arw_right  &trans  &trans
 &trans     &trans  &trans  &trans  &trans    &trans                     &trans          &trans          &trans          &trans           &trans  &trans
            &trans  &trans  &trans  &kp LALT  &trans  &trans  &kp SPACE  &trans                                          &trans           &trans
             >;

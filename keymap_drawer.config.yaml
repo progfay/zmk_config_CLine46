@@ -13,10 +13,10 @@ parse_config:
     "&kp ESC": "⎋"
     "&kp SPACE": "␣"
 
-    "&ctrl_off LEFT": "←"
-    "&ctrl_off DOWN": "↓"
-    "&ctrl_off UP": "↑"
-    "&ctrl_off RIGHT": "→"
+    "&arw_left": "←"
+    "&arw_down": "↓"
+    "&arw_up": "↑"
+    "&arw_right": "→"
 
     "&lt 1 ENTER": { t: "⏎", h: "Arrow" }
     "&lt 2 SPACE": { t: "␣", h: "Num" }
