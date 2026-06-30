@@ -245,18 +245,19 @@ run_flash() {
 # ---- エントリポイント -------------------------------------------------------
 parse_args do_reset "$@"
 
-# reset は左右共通の単一ファイル。順序は任意なので「1台目/2台目」で表示する。
-# 通常ファームは左右で別ファイル・順序が意味を持つので「左手/右手」で表示する。
+# reset 指定時は左右それぞれ「settings_reset → 通常ファーム」の順で書き込む。
+# (reset 後はボードが通常リブートするため、各書き込み前に再度ブートローダーへ入れる)
+# 通常時は左右で別ファイル・順序が意味を持つので「左手/右手」で書き込む。
 if [ "$do_reset" -eq 1 ]; then
   warn "settings_reset を書き込むと Bluetooth ペアリング等の保存設定が消えます。"
-  warn "リセット後は ./flash.sh で通常ファームを書き戻してください。"
+  warn "リセット後に通常ファームを書き戻すため、左右それぞれ 2 回ずつ書き込みます。"
   printf "続行しますか? [y/N] "
   read -r ans
   case "$ans" in
     [yY]|[yY][eE][sS]) ;;
     *) info "中止しました。"; exit 0 ;;
   esac
-  run_flash "1台目|reset" "2台目|reset"
+  run_flash "左手 reset|reset" "左手 flash|left" "右手 reset|reset" "右手 flash|right"
 else
   run_flash "左手|left" "右手|right"
 fi
