@@ -23,7 +23,7 @@ parse_config:
 
     "&lm 1 LALT": { t: "⌥", h: "Arrow" }
 
-    "&lang1_sh2": { t: "KANA", h: "⇧ Num" }
+    "&lang1_sh2 0 LANG1": { t: "KANA", h: "⇧ Num" }
     "&lang2_gui": { t: "EISU", h: "⌘" }
 
     "&mkp LCLK": "L Click"
