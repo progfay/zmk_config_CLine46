@@ -43,7 +43,7 @@
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;  //P0.09を指定(CS)
+    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;  // P0.09を指定(CS)
 
     trackball: trackball@0 {
         status = "okay";
@@ -59,23 +59,17 @@
     };
 };
 
-// オートマウスレイヤー（temp-layer）の調整
-&zip_temp_layer {
-    require-prior-idle-ms = <100>;  //直前のキー入力から100ms以内はレイヤーを起動しない（タイピング中の誤爆防止）
-    excluded-positions = <11 23 35>;  //MOUSEレイヤーの &mo 3（SCROLL）を押してもオートマウスレイヤーを解除しない（layer 2+3 を同時アクティブにし scroller override を効かせる）
-};
-
 // Overrides for the input listener node
 &trackball_listener {
     status = "okay";
     input-processors =
-        <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>;       //X軸反転
+        <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>;       // X軸反転
 
     scroller {
         layers = <3>;
         input-processors =
-            <&zip_xy_to_scroll_mapper>,                         //スクロールモードに変更
-            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   //スクロールのX軸反転
-            <&zip_scroll_scaler 1 32>;                          //スクロール量を1/32倍
+            <&zip_xy_to_scroll_mapper>,                                                     // スクロールモードに変更
+            <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,  // スクロールのX軸・Y軸反転
+            <&zip_scroll_scaler 1 32>;                                                      // スクロール量を1/32倍
     };
 };
