@@ -59,6 +59,10 @@
     };
 };
 
+&msc_input_listener {
+    input-processors = <&zip_scroll_scaler 3 1>;  // スクロール量を3倍
+};
+
 // Overrides for the input listener node
 &trackball_listener {
     status = "okay";
