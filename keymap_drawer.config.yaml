@@ -21,13 +21,10 @@ parse_config:
     "&lt 1 ENTER": { t: "⏎", h: "Arrow" }
     "&lt 2 SPACE": { t: "␣", h: "Num" }
 
-    "&lm 4 LCTRL": { t: "⌃", h: "CtrlArrow" }
-    "&lm 1 LALT": { t: "⌥", h: "Arrow" }
-
-    "&cdrop LEFT": "←"
-    "&cdrop DOWN": "↓"
-    "&cdrop UP": "↑"
-    "&cdrop RIGHT": "→"
+    "&h_morph": { t: "h", h: "←" }
+    "&j_morph": { t: "j", h: "↓" }
+    "&k_morph": { t: "k", h: "↑" }
+    "&l_morph": { t: "l", h: "→" }
 
     "&lang1_sh2 0 LANG1": { t: "KANA", h: "⇧ Num" }
     "&lang2_gui": { t: "EISU", h: "⌘" }

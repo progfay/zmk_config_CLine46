@@ -22,6 +22,39 @@
             quick-tap-ms = <0>;
             bindings = <&rsft_l2>, <&kp>;
         };
+
+        // hjkl morph into arrows while CTRL and/or ALT is held.
+        // CTRL is masked (ctrl+h -> bare ←), ALT is kept (alt+h -> ⌥←).
+        // GUI/SHIFT are not in `mods`, so they pass through untouched
+        // (gui+h -> ⌘h, gui+alt+h -> ⌘⌥←, ctrl+shift+h -> ⇧←).
+        h_morph: h_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp LEFT>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
+        };
+        j_morph: j_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp J>, <&kp DOWN>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
+        };
+        k_morph: k_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp K>, <&kp UP>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
+        };
+        l_morph: l_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&lt 3 L>, <&kp RIGHT>;
+            mods = <(MOD_LCTL|MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
+        };
     };
 
     macros {
@@ -72,26 +105,6 @@
                 ;
             label = "LANG2_GUI";
         };
-
-        // momentarily drop LCTRL while sending the given key, then restore it.
-        // used on the CtrlArrow layer so ctrl+hjkl emits a bare arrow (no ⌃)
-        // while other physically-held mods (⌥ / ⌘ / ⇧) still pass through.
-        cdrop: cdrop {
-            compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <1>;
-            bindings
-                = <&macro_release &kp LCTRL>
-                , <&macro_param_1to1>
-                , <&macro_press &kp MACRO_PLACEHOLDER>
-                , <&macro_pause_for_release>
-                , <&macro_param_1to1>
-                , <&macro_release &kp MACRO_PLACEHOLDER>
-                , <&macro_press &kp LCTRL>
-                ;
-            label = "CDROP";
-        };
     };
 
     combos {
@@ -120,10 +133,10 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp TAB      &kp Q  &kp W   &kp E   &kp R       &kp T                                 &kp Y               &kp U       &kp I      &kp O        &kp P       &kp BACKSPACE
-&lm 4 LCTRL  &kp A  &kp S   &kp D   &kp F       &kp G                                 &kp H               &kp J       &kp K      &lt 3 L      &kp SEMI    &kp SINGLE_QUOTE
-&kp LSHIFT   &kp Z  &kp X   &kp C   &kp V       &kp B                                 &kp N               &kp M       &kp COMMA  &kp DOT      &kp SLASH   &none
-             &mo 3  &trans  &trans  &lm 1 LALT  &lang2_gui  &lt 2 SPACE  &lt 1 ENTER  &lang1_sh2 0 LANG1                         &kp MINUS    &kp EQUAL
+&kp TAB     &kp Q  &kp W   &kp E   &kp R      &kp T                                 &kp Y               &kp U       &kp I      &kp O      &kp P       &kp BACKSPACE
+&kp LCTRL   &kp A  &kp S   &kp D   &kp F      &kp G                                 &h_morph            &j_morph    &k_morph   &l_morph   &kp SEMI    &kp SINGLE_QUOTE
+&kp LSHIFT  &kp Z  &kp X   &kp C   &kp V      &kp B                                 &kp N               &kp M       &kp COMMA  &kp DOT    &kp SLASH   &none
+            &mo 3  &trans  &trans  &kp LALT   &lang2_gui  &lt 2 SPACE  &lt 1 ENTER  &lang1_sh2 0 LANG1                         &kp MINUS   &kp EQUAL
             >;
         };
 
@@ -161,23 +174,9 @@
         };
 
 
-        // entered by the ctrl key (&lm 4 LCTRL). hjkl emit bare arrows with
-        // LCTRL dropped; every other key is transparent so the held ⌃ passes
-        // through (ctrl+c etc.). Higher than layer_1 so ctrl+alt resolves here.
-        layer_4 {
-            display-name = "CtrlArrow";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans        &trans        &trans      &trans         &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &cdrop LEFT   &cdrop DOWN   &cdrop UP   &cdrop RIGHT   &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans        &trans        &trans      &trans         &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans
-            >;
-        };
-
-
-        // unused layer (layer_5, 6 are available)
+        // unused layer (layer_4, 5, 6 are available)
         /*
-        layer_5 {
+        layer_4 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
