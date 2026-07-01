@@ -65,8 +65,8 @@ layers:
   - '5'
   - '6'
   - L Click
-  - R Click
-  - {t: ▽, type: trans}
+  - {t: R Click, s: '['}
+  - ']'
   - L Click
   - R Click
   - {t: ▽, type: trans}
@@ -123,8 +123,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - L Click
+  - R Click
   - F18
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
