@@ -14,7 +14,7 @@
 &msc_input_listener {
     // 速度値(MOVE_UP/DOWN)は大きいまま滑らかさを確保し、
     // ホイール出力を track-remainders 付きで割って移動量だけ小さくする
-    input-processors = <&zip_scroll_smooth 1 2>;  // 1/2。さらに小さくするなら 1 3 など
+    input-processors = <&zip_scroll_smooth 1 4>;
 };
 
 &msc {

@@ -18,9 +18,9 @@ parse_config:
     "&kp UP": "↑"
     "&kp RIGHT": "→"
 
-    "&lt 1 ENTER": { t: "⏎", h: "Arrow" }
     "&lt 1 SPACE": { t: "␣", h: "Num" }
 
+    "&enter_morph": { t: "⏎", h: "Num" }
     "&h_morph": { t: "h", h: "←" }
     "&j_morph": { t: "j", h: "↓" }
     "&k_morph": { t: "k", h: "↑" }
