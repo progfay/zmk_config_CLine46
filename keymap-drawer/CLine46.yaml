@@ -43,7 +43,7 @@ layers:
   - ⌥
   - {t: EISU, h: ⌘}
   - {t: ␣, h: Num}
-  - {t: ⏎, h: Arrow, s: ␣}
+  - {t: ⏎, h: Num}
   - {t: KANA, h: ⇧ Num}
   - '-'
   - '='
