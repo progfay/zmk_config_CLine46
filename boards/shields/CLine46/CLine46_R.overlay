@@ -13,6 +13,18 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
     };
+
+    // デバッグ用: CONFIG_ZMK_USB_LOGGING の出力先となる CDC ACM UART
+    // 検証が終わったらこのブロックごと削除すること
+    chosen {
+        zephyr,console = &cdc_acm_uart0;
+    };
+};
+
+&usbd {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+    };
 };
 
 &pinctrl {
@@ -35,9 +47,7 @@
 };
 
 
-// デバッグ用に一時的に有効化(CONFIG_ZMK_USB_LOGGING に必要な CDC ACM UART ノード)
-// 検証が終わったら "disabled" に戻すこと
-&xiao_serial { status = "okay"; };
+&xiao_serial { status = "disabled"; };
 
 &spi0 {
     status = "okay";
