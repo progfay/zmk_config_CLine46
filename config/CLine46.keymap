@@ -244,7 +244,7 @@
             bindings = <
 &kp ESC  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &bt BT_CLR   &trans   &trans   &trans   &kp F17  &kp DELETE
 &trans   &trans        &trans        &kp F19       &trans        &trans                        &kp F13      &kp F14  &kp F15  &kp F16  &trans   &trans
-&trans   &trans        &trans        &trans        &trans        &trans                        &kp F18      &trans   &trans   &trans   &trans   &trans
+&trans   &trans        &trans        &trans        &mkp LCLK     &mkp RCLK                     &kp F18      &trans   &trans   &trans   &trans   &trans
          &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans                         &trans   &trans
             >;
         };
