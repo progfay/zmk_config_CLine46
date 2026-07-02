@@ -9,6 +9,11 @@
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
+    retro-tap;
+};
+
+&lt {
+    retro-tap;
 };
 
 &msc_input_listener {
