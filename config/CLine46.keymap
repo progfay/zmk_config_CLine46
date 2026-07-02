@@ -123,15 +123,6 @@
             keep-mods = <(MOD_LALT)>;
         };
 
-        // RCLK, but while LGUI is held it morphs into LGUI+[
-        rclk_morph: rclk_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&mkp RCLK>, <&kp LBKT>;
-            mods = <(MOD_LGUI)>;
-            keep-mods = <(MOD_LGUI)>;
-        };
-
         // ENTER, but while LALT is held it morphs into SPACE
         // so &kp LALT + this key -> ⌥Space
         enter_morph: enter_morph {
@@ -193,7 +184,7 @@
 &kp TAB     &kp Q  &kp W   &kp E   &kp R     &kp T                                      &kp Y        &kp U     &kp I      &kp O      &kp P      &kp BACKSPACE
 &kp LCTRL   &kp A  &kp S   &kp D   &kp F     &kp G                                      &h_morph     &j_morph  &k_morph   &l_morph   &kp SEMI   &kp SINGLE_QUOTE
 &kp LSHIFT  &kp Z  &kp X   &kp C   &kp V     &kp B                                      &kp N        &kp M     &kp COMMA  &kp DOT    &kp SLASH  &none
-            &mo 2  &trans  &trans  &kp LALT  &mt LGUI LANG2  &lt 1 SPACE  &enter_morph  &lt 3 LANG1            &kp MINUS  &kp EQUAL
+            &mo 2  &none   &none   &kp LALT  &mt LGUI LANG2  &lt 1 SPACE  &enter_morph  &lt 3 LANG1            &kp MINUS  &kp EQUAL
             >;
         };
 
@@ -201,10 +192,10 @@
         layer_1 {
             display-name = "Num";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                       &kp N6    &kp N7          &kp N8       &kp N9  &kp N0  &kp BACKSPACE
-&trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &rclk_morph                  &kp RBK  &mkp LCLK       &mkp RCLK     &trans  &trans  &kp BSLH
-&trans     &kp N7  &kp N8  &kp N9  &trans     &kp LBKT                     &kp RBK  &msc MOVE_DOWN  &msc MOVE_UP  &trans  &trans  &trans
-           &trans  &kp N0  &trans  &trans     &trans       &trans  &trans  &trans                                 &trans  &trans
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                     &kp N6    &kp N7          &kp N8       &kp N9  &kp N0  &kp BACKSPACE
+&trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &mkp RCLK                  &trans    &mkp LCLK       &mkp RCLK     &trans  &trans  &kp BSLH
+&trans     &kp N7  &kp N8  &kp N9  &trans     &kp LBKT                   &kp RBKT  &msc MOVE_DOWN  &msc MOVE_UP  &trans  &trans  &trans
+           &trans  &kp N0  &trans  &trans     &trans     &trans  &trans  &trans                                 &trans  &trans
             >;
         };
 
@@ -213,8 +204,8 @@
             display-name = "Scroll";
             bindings = <
 &kp ESC  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &bt BT_CLR  &trans   &trans   &trans   &kp F17  &kp DELETE
-&trans   &trans        &trans        &kp F19       &trans        &trans                        &kp F13     &kp F14  &kp F15  &kp F16  &trans   &trans
-&trans   &trans        &trans        &trans        &mkp LCLK     &mkp RCLK                     &kp F18     &trans   &trans   &trans   &trans   &trans
+&trans   &trans        &trans        &kp F19       &mkp LCLK     &mkp RCLK                     &kp F13     &kp F14  &kp F15  &kp F16  &trans   &trans
+&trans   &trans        &trans        &trans        &trans        &trans                        &kp F18     &trans   &trans   &trans   &trans   &trans
          &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans                        &trans   &trans
             >;
         };

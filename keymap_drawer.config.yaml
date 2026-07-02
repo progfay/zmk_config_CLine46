@@ -26,9 +26,6 @@ parse_config:
     "&k_morph": { t: "k", h: "↑" }
     "&l_morph": { t: "l", h: "→" }
 
-    "&lang1_sh2 0 LANG1": { t: "KANA", h: "⇧ Num" }
-    "&lang2_gui": { t: "EISU", h: "⌘" }
-
     "&mkp LCLK": "L Click"
     "&mkp RCLK": "R Click"
 
