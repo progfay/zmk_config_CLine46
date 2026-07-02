@@ -47,7 +47,7 @@
 
         // hjkl morph into arrows on CTRL/ALT (ctrl masked, alt kept).
         // GUI disables the morph, so gui+ctrl+h stays ⌘⌃h,
-        // except alt+gui+h / shift+gui+h which morph into alt+gui+← / shift+gui+← (via h_gui).
+        // except alt+gui+h which morphs into alt+gui+← (via h_gui).
         h_morph: h_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -59,8 +59,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp H>, <&kp LEFT>;
-            mods = <(MOD_LALT|MOD_LSFT)>;
-            keep-mods = <(MOD_LALT|MOD_LSFT)>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
         h_arrow: h_arrow {
             compatible = "zmk,behavior-mod-morph";
@@ -80,8 +80,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp J>, <&kp DOWN>;
-            mods = <(MOD_LALT|MOD_LSFT)>;
-            keep-mods = <(MOD_LALT|MOD_LSFT)>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
         j_arrow: j_arrow {
             compatible = "zmk,behavior-mod-morph";
@@ -101,8 +101,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp K>, <&kp UP>;
-            mods = <(MOD_LALT|MOD_LSFT)>;
-            keep-mods = <(MOD_LALT|MOD_LSFT)>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
         k_arrow: k_arrow {
             compatible = "zmk,behavior-mod-morph";
@@ -122,8 +122,8 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&lt 2 L>, <&kp RIGHT>;
-            mods = <(MOD_LALT|MOD_LSFT)>;
-            keep-mods = <(MOD_LALT|MOD_LSFT)>;
+            mods = <(MOD_LALT)>;
+            keep-mods = <(MOD_LALT)>;
         };
         l_arrow: l_arrow {
             compatible = "zmk,behavior-mod-morph";
