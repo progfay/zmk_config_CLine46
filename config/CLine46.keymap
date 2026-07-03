@@ -40,6 +40,17 @@
     };
 
     behaviors {
+        // Same as built-in &lt, but without retro-tap: L is used to hold into
+        // the Scroll layer for pointer/wheel input, which never triggers a
+        // key-press interrupt, so retro-tap would resolve every hold to a tap.
+        l_lt: l_lt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
         // hjkl morph into arrows on CTRL/ALT (ctrl masked, alt kept).
         // GUI disables the morph, so gui+ctrl+h stays ⌘⌃h,
         // except alt+gui+h which morphs into alt+gui+← (via h_gui).
@@ -116,14 +127,14 @@
         l_gui: l_gui {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&lt 2 L>, <&kp RIGHT>;
+            bindings = <&l_lt 2 L>, <&kp RIGHT>;
             mods = <(MOD_LALT)>;
             keep-mods = <(MOD_LALT)>;
         };
         l_arrow: l_arrow {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&lt 2 L>, <&kp RIGHT>;
+            bindings = <&l_lt 2 L>, <&kp RIGHT>;
             mods = <(MOD_LCTL|MOD_LALT)>;
             keep-mods = <(MOD_LALT)>;
         };
