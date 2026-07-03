@@ -6,12 +6,12 @@ parse_config:
   raw_binding_map:
     "&kp LCTRL": "⌃"
     "&kp LSHIFT": "⇧"
+    "&kp RSHIFT": "⇧"
     "&kp LALT": "⌥"
     "&kp TAB": "⇥"
     "&kp BACKSPACE": "⌫"
     "&kp DELETE": "⌦"
     "&kp ESC": "⎋"
-    "&kp SPACE": "␣"
 
     "&kp LEFT": "←"
     "&kp DOWN": "↓"
