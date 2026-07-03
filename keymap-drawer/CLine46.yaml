@@ -66,10 +66,10 @@ layers:
   - '6'
   - L Click
   - R Click
-  - {t: ▽, type: trans}
+  - Desktop ←
   - L Click
   - R Click
-  - {t: ▽, type: trans}
+  - Desktop →
   - {t: ▽, type: trans}
   - \
   - {t: ▽, type: trans}
@@ -89,8 +89,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - ⇧
+  - RSHIFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
