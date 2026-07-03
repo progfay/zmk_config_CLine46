@@ -66,10 +66,10 @@ layers:
   - '6'
   - L Click
   - R Click
-  - '&gch_ent'
+  - Desktop ←
   - L Click
   - R Click
-  - '&gcl_ent'
+  - Desktop →
   - {t: ▽, type: trans}
   - \
   - {t: ▽, type: trans}
