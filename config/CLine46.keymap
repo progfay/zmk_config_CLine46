@@ -83,6 +83,21 @@
             mods = <(MOD_LALT)>;
             keep-mods = <(MOD_LALT)>;
         };
+
+        // &enter_morph(位置 42)を物理的に保持している間だけ発火する。
+        // &lt 1 SPACE 経由で layer_1 に入った場合は &none になる
+        gch_ent: gch_ent {
+            compatible = "zmk,behavior-position-morph";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kp LG(LC(H))>;
+            positions = <42>;
+        };
+        gcl_ent: gcl_ent {
+            compatible = "zmk,behavior-position-morph";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kp LG(LC(L))>;
+            positions = <42>;
+        };
     };
 
     combos {
@@ -123,7 +138,7 @@
             display-name = "Num";
             bindings = <
 &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                             &kp N6         &kp N7          &kp N8        &kp N9         &kp N0  &kp BACKSPACE
-&trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &mkp RCLK                          &kp LG(LC(H))  &mkp LCLK       &mkp RCLK     &kp LG(LC(L))  &trans  &kp BSLH
+&trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &mkp RCLK                          &gch_ent       &mkp LCLK       &mkp RCLK     &gcl_ent       &trans  &kp BSLH
 &trans     &kp N7  &kp N8  &kp N9  &trans     &kp LBKT                           &kp RBKT       &msc MOVE_DOWN  &msc MOVE_UP  &trans         &trans  &trans
            &trans  &kp N0  &trans  &trans     &trans     &kp LSHIFT  &kp RSHIFT  &trans                                       &trans         &trans
             >;
