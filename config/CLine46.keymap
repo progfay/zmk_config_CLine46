@@ -31,7 +31,7 @@
     };
 
 &mt {
-    flavor = "balanced";
+    flavor = "hold-preferred";
     quick-tap-ms = <0>;
     retro-tap;
     retro-tap-timeout-ms = <2000>;
