@@ -34,10 +34,12 @@
     flavor = "balanced";
     quick-tap-ms = <0>;
     retro-tap;
+    retro-tap-timeout-ms = <2000>;
 };
 
 &lt {
     retro-tap;
+    retro-tap-timeout-ms = <2000>;
 };
 
 &msc_input_listener {
