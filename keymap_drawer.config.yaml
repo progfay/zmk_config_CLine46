@@ -29,5 +29,8 @@ parse_config:
     "&mkp LCLK": "L Click"
     "&mkp RCLK": "R Click"
 
+    "&kp LG(LC(H))": "Desktop ←"
+    "&kp LG(LC(L))": "Desktop →"
+
     "&msc MOVE_DOWN": "Scroll ↓"
     "&msc MOVE_UP": "Scroll ↑"
