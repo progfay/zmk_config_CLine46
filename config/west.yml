@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: progfay
+      url-base: https://github.com/progfay
     - name: badjeff
       url-base: https://github.com/badjeff
     - name: caksoylar
@@ -10,9 +12,11 @@ manifest:
       url-base: https://github.com/takamaru-fpv
 
   projects:
+    # progfay/zmk = zmkfirmware/zmk v0.3-branch + retro-tap をポインタ入力
+    # (トラックボール)で解除するパッチ。ZMK 更新時はこのブランチを rebase する。
     - name: zmk
-      remote: zmkfirmware
-      revision: v0.3-branch
+      remote: progfay
+      revision: retro-tap-pointer-cancel-v0.3
       import: app/west.yml
     - name: zmk-feature-non-lipo-battery-management
       remote: takamaru-fpv
