@@ -24,7 +24,7 @@ layers:
   - {t: k, h: ↑}
   - {t: l, h: →}
   - ;
-  - ''''
+  - ''
   - ⇧
   - Z
   - X
@@ -70,8 +70,8 @@ layers:
   - L Click
   - R Click
   - Desktop →
+  - ''''
   - {t: ▽, type: trans}
-  - \
   - {t: ▽, type: trans}
   - '7'
   - '8'
@@ -82,7 +82,7 @@ layers:
   - Scroll ↓
   - Scroll ↑
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - \
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '0'
