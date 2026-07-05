@@ -1,5 +1,134 @@
-on: [workflow_dispatch]
+name: Build
+
+# Standalone firmware build for this config repo. All build.yaml entries use
+# the same board, so a single job builds them serially: the west workspace is
+# downloaded once and ccache makes the 2nd+ builds mostly cache hits.
+# Artifact layout matches zmkfirmware's build-user-config.yml, which flash.sh
+# depends on: one artifact named "firmware" containing
+# "<shield>-<board>-zmk.uf2" files.
+
+on:
+  workflow_dispatch:
+
+permissions: {}
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    container:
+      image: docker.io/zmkfirmware/zmk-build-arm:3.5
+    env:
+      # The west workspace lives outside the checkout because the repo root is
+      # itself a Zephyr module (zephyr/module.yml) and its zephyr/ directory
+      # would collide with the Zephyr checkout.
+      BASE_DIR: /tmp/zmk-workspace
+      CCACHE_DIR: /tmp/zmk-workspace/.ccache
+      CCACHE_MAXSIZE: 1G
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Copy config to isolated west workspace
+        run: |
+          mkdir -p "$BASE_DIR/config"
+          cp -R config/* "$BASE_DIR/config/"
+      - name: Cache west modules
+        uses: actions/cache@v5
+        continue-on-error: true
+        timeout-minutes: 5
+        with:
+          path: |
+            /tmp/zmk-workspace/modules/
+            /tmp/zmk-workspace/tools/
+            /tmp/zmk-workspace/zephyr/
+            /tmp/zmk-workspace/bootloader/
+            /tmp/zmk-workspace/zmk/
+          key: ${{ runner.os }}-west-${{ hashFiles('config/west.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-west-
+      - name: Cache ccache
+        uses: actions/cache@v5
+        with:
+          path: /tmp/zmk-workspace/.ccache
+          key: ${{ runner.os }}-ccache-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-ccache-
+      - name: Initialize west workspace
+        working-directory: ${{ env.BASE_DIR }}
+        run: |
+          west init -l "$BASE_DIR/config"
+          west update --fetch-opt=--filter=tree:0
+          west zephyr-export
+      - name: Build
+        shell: bash
+        working-directory: ${{ env.BASE_DIR }}
+        run: |
+          # Expand build.yaml (top-level board/shield cross product + include
+          # entries) into one line per build. Fields are separated by the
+          # ASCII unit separator: unlike tabs it is not IFS whitespace, so
+          # empty fields (snippet, cmake-args) survive `read`.
+          python3 - "$GITHUB_WORKSPACE/build.yaml" <<'EOF' > builds.tsv
+          import sys, yaml
+
+          with open(sys.argv[1]) as f:
+              matrix = yaml.safe_load(f)
+
+          entries = [
+              {"board": board, "shield": shield}
+              for board in matrix.get("board") or []
+              for shield in matrix.get("shield") or [None]
+          ]
+          entries += matrix.get("include") or []
+
+          for entry in entries:
+              board = entry["board"]
+              shield = entry.get("shield") or ""
+              name = entry.get("artifact-name") or f"{shield}{'-' if shield else ''}{board}-zmk"
+              print("\x1f".join([
+                  board,
+                  shield,
+                  entry.get("snippet") or "",
+                  entry.get("cmake-args") or "",
+                  name,
+              ]))
+          EOF
+
+          mkdir -p "$GITHUB_WORKSPACE/artifacts"
+          error=0
+          i=0
+
+          while IFS=$'\x1f' read -r board shield snippet cmake_args artifact_name; do
+            echo "::group::$artifact_name"
+            build_dir="build/$((i++))"
+
+            if west build -s zmk/app -d "$build_dir" -b "$board" \
+                ${snippet:+-S "$snippet"} -- \
+                -DZMK_CONFIG="$BASE_DIR/config" \
+                -DZMK_EXTRA_MODULES="$GITHUB_WORKSPACE" \
+                ${shield:+-DSHIELD="$shield"} \
+                $cmake_args; then
+              if [ -f "$build_dir/zephyr/zmk.uf2" ]; then
+                cp "$build_dir/zephyr/zmk.uf2" "$GITHUB_WORKSPACE/artifacts/$artifact_name.uf2"
+              elif [ -f "$build_dir/zephyr/zmk.bin" ]; then
+                cp "$build_dir/zephyr/zmk.bin" "$GITHUB_WORKSPACE/artifacts/$artifact_name.bin"
+              else
+                echo "::error::No firmware produced for $artifact_name"
+                error=1
+              fi
+            else
+              echo "::error::Failed to build $artifact_name"
+              error=1
+            fi
+            echo "::endgroup::"
+          done < builds.tsv
+
+          ccache -s
+          exit "$error"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: firmware
+          path: artifacts/
