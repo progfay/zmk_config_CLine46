@@ -111,12 +111,12 @@
             layers = <0 1 3>;
         };
 
-        // K + L while holding &mo 2 (SCROLL layer) -> delete
+        // K + L while holding &mo 4 (Fn layer) -> delete
         combo_delete {
             timeout-ms = <50>;
             key-positions = <20 21>;
             bindings = <&kp DELETE>;
-            layers = <2>;
+            layers = <2 4>;
         };
     };
 
@@ -129,7 +129,7 @@
 &kp TAB     &kp Q  &kp W   &kp E   &kp R     &kp T                                      &kp Y        &kp U     &kp I      &kp O      &kp P      &kp BACKSPACE
 &kp LCTRL   &kp A  &kp S   &kp D   &kp F     &kp G                                      &h_morph     &j_morph  &k_morph   &l_morph   &kp SEMI   &none
 &kp LSHIFT  &kp Z  &kp X   &kp C   &kp V     &kp B                                      &kp N        &kp M     &kp COMMA  &kp DOT    &kp SLASH  &none
-            &mo 2  &none   &none   &kp LALT  &mt LGUI LANG2  &lt 1 SPACE  &enter_morph  &lt 3 LANG1            &kp MINUS  &kp EQUAL
+            &mo 4  &none   &none   &kp LALT  &mt LGUI LANG2  &lt 1 SPACE  &enter_morph  &lt 3 LANG1            &kp MINUS  &kp EQUAL
             >;
         };
 
@@ -148,10 +148,10 @@
         layer_2 {
             display-name = "Scroll";
             bindings = <
-&kp ESC  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &bt BT_CLR  &trans   &trans   &trans   &kp F17  &kp DELETE
-&trans   &trans        &trans        &kp F19       &mkp LCLK     &mkp RCLK                     &kp F13     &kp F14  &kp F15  &kp F16  &trans   &trans
-&trans   &trans        &trans        &trans        &trans        &trans                        &kp F18     &trans   &trans   &trans   &trans   &trans
-         &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans                        &trans   &trans
+&trans  &trans  &trans  &trans  &trans     &trans                        &trans  &trans     &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK                     &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans                        &trans  &trans     &trans     &trans  &trans  &trans
+        &trans  &trans  &trans  &trans     &trans      &trans    &trans  &trans                        &trans  &trans
             >;
         };
 
@@ -167,9 +167,20 @@
         };
 
 
-        // unused layer (layer_4, 5, 6 are available)
-        /*
         layer_4 {
+            display-name = "Fn";
+            bindings = <
+&kp ESC  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &bt BT_CLR  &trans   &trans   &trans   &kp F17  &kp DELETE
+&trans   &trans        &trans        &kp F19       &trans        &trans                        &kp F13     &kp F14  &kp F15  &kp F16  &trans   &trans
+&trans   &trans        &trans        &trans        &trans        &trans                        &kp F18     &trans   &trans   &trans   &trans   &trans
+         &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans                        &trans   &trans
+            >;
+        };
+
+
+        // unused layer (layer_5, 6 are available)
+        /*
+        layer_5 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
