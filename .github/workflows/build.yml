@@ -109,34 +109,47 @@ jobs:
           # the summary below reflects this run only.
           ccache --zero-stats > /dev/null
 
-          mkdir -p "$GITHUB_WORKSPACE/artifacts"
-          error=0
+          mkdir -p "$GITHUB_WORKSPACE/artifacts" logs
+
+          # Run all builds in parallel, each in its own build dir with its
+          # output buffered to its own log file (printed grouped below, so
+          # logs do not interleave). ccache handles concurrent access.
+          names=()
+          pids=()
           i=0
-
           while IFS=$'\x1f' read -r board shield snippet cmake_args artifact_name; do
-            echo "::group::$artifact_name"
-            build_dir="build/$((i++))"
+            west build -s zmk/app -d "build/$i" -b "$board" \
+              ${snippet:+-S "$snippet"} -- \
+              -DZMK_CONFIG="$BASE_DIR/config" \
+              -DZMK_EXTRA_MODULES="$GITHUB_WORKSPACE" \
+              ${shield:+-DSHIELD="$shield"} \
+              $cmake_args > "logs/$i.log" 2>&1 &
+            pids[i]=$!
+            names[i]="$artifact_name"
+            i=$((i+1))
+          done < builds.tsv
 
-            if west build -s zmk/app -d "$build_dir" -b "$board" \
-                ${snippet:+-S "$snippet"} -- \
-                -DZMK_CONFIG="$BASE_DIR/config" \
-                -DZMK_EXTRA_MODULES="$GITHUB_WORKSPACE" \
-                ${shield:+-DSHIELD="$shield"} \
-                $cmake_args; then
-              if [ -f "$build_dir/zephyr/zmk.uf2" ]; then
-                cp "$build_dir/zephyr/zmk.uf2" "$GITHUB_WORKSPACE/artifacts/$artifact_name.uf2"
-              elif [ -f "$build_dir/zephyr/zmk.bin" ]; then
-                cp "$build_dir/zephyr/zmk.bin" "$GITHUB_WORKSPACE/artifacts/$artifact_name.bin"
-              else
-                echo "::error::No firmware produced for $artifact_name"
-                error=1
-              fi
+          error=0
+          for ((j = 0; j < i; j++)); do
+            status=0
+            wait "${pids[j]}" || status=$?
+            echo "::group::${names[j]}"
+            cat "logs/$j.log"
+            echo "::endgroup::"
+
+            build_dir="build/$j"
+            if [ "$status" -ne 0 ]; then
+              echo "::error::Failed to build ${names[j]}"
+              error=1
+            elif [ -f "$build_dir/zephyr/zmk.uf2" ]; then
+              cp "$build_dir/zephyr/zmk.uf2" "$GITHUB_WORKSPACE/artifacts/${names[j]}.uf2"
+            elif [ -f "$build_dir/zephyr/zmk.bin" ]; then
+              cp "$build_dir/zephyr/zmk.bin" "$GITHUB_WORKSPACE/artifacts/${names[j]}.bin"
             else
-              echo "::error::Failed to build $artifact_name"
+              echo "::error::No firmware produced for ${names[j]}"
               error=1
             fi
-            echo "::endgroup::"
-          done < builds.tsv
+          done
 
           ccache -s
           exit "$error"
