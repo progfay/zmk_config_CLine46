@@ -26,6 +26,15 @@ jobs:
       BASE_DIR: /tmp/zmk-workspace
       CCACHE_DIR: /tmp/zmk-workspace/.ccache
       CCACHE_MAXSIZE: 1G
+      # The Zephyr SDK GCC is a symlink two directories away from its
+      # picolibc.specs; ccache resolves --specs relative to CWD, fails to find
+      # it and marks every compile "bad compiler arguments" (uncacheable).
+      # The compiler itself resolves the specs fine, so let ccache ignore it.
+      CCACHE_IGNOREOPTIONS: --specs=*
+      # Zephyr's gen_kobject_list.py emits syscall headers in Python
+      # set/hash order; pin the hash seed so pristine rebuilds produce
+      # byte-identical headers and ccache can hit.
+      PYTHONHASHSEED: "0"
     steps:
       - name: Checkout
         uses: actions/checkout@v7
