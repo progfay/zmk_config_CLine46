@@ -105,6 +105,10 @@ jobs:
               ]))
           EOF
 
+          # Stats accumulate inside the restored cache directory; zero them so
+          # the summary below reflects this run only.
+          ccache --zero-stats > /dev/null
+
           mkdir -p "$GITHUB_WORKSPACE/artifacts"
           error=0
           i=0
