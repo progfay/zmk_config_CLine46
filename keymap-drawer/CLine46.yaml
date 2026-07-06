@@ -238,7 +238,7 @@ layers:
 combos:
 - p: [20, 21]
   k: ⌫
-  l: [Base, Num, Arrow]
+  l: [Base, Num, Scroll, Arrow]
 - p: [20, 21]
   k: ⌦
-  l: [Scroll, Fn]
+  l: [Fn]
