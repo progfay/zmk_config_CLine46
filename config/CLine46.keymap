@@ -38,6 +38,12 @@
 };
 
 &lt {
+    // デフォルトの tap-preferred だと tapping-term(200ms)保持しない限り
+    // 必ず tap になり、高速な SPACE→クリック等が SPACE+キー化する。
+    // balanced なら「保持中に他キーが押して離された」時点で即 hold 確定する。
+    // ただし文字キー上の &lt 2 L は balanced だとロール誤爆するため
+    // tap-preferred の &lt_l に退避している
+    flavor = "balanced";
     retro-tap;
     retro-tap-timeout-ms = <2000>;
 };
@@ -72,7 +78,20 @@
         ARROW_MORPH(h, &kp H,   LEFT)
         ARROW_MORPH(j, &kp J,   DOWN)
         ARROW_MORPH(k, &kp K,   UP)
-        ARROW_MORPH(l, &lt 2 L, RIGHT)
+        ARROW_MORPH(l, &lt_l 2 L, RIGHT)
+
+        // L(文字キー)専用の layer-tap。グローバル &lt は balanced だが、
+        // L だと "walk"/"self" 等の内側ロールで layer 2 に誤爆して
+        // クリックが発火するため、L だけ tap-preferred を維持する
+        lt_l: lt_l {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+            retro-tap;
+            retro-tap-timeout-ms = <2000>;
+        };
 
         // ENTER, but while LALT is held it morphs into SPACE
         // so &kp LALT + this key -> ⌥Space
