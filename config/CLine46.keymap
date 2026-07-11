@@ -34,7 +34,7 @@
     flavor = "hold-preferred";
     quick-tap-ms = <0>;
     retro-tap;
-    retro-tap-timeout-ms = <2000>;
+    retro-tap-timeout-ms = <800>;
 };
 
 &lt {
