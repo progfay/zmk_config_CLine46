@@ -191,6 +191,22 @@ wait_for_bootloader() {
   printf '%s\n' "$vol"
 }
 
+# ボリュームに実際に書き込めるかを、本番の cp の前に軽くテストしておく。
+# (一部のターミナルアプリでは、ボリュームへの書き込みが "Operation not
+# permitted" でサイレントに失敗することがある。本番の cp はボード側の自動
+# アンマウントと区別が付かないため失敗を許容する作りになっており、ここで
+# 弾いておかないと「書き込み成功したように見えて実際は何も書き込まれて
+# いない」状態に気付けない)
+check_volume_writable() {
+  local vol="$1" label="$2" test_file err
+  test_file="$vol/.cline46_write_test"
+  # 2>&1 を先に置くことで、リダイレクト自体の失敗メッセージも確実に捕まえる
+  if ! err=$(: 2>&1 > "$test_file"); then
+    die "[$label] ボリューム ($vol) に書き込めません: $err / このターミナルアプリが外部ボリュームへの書き込みを許可されていない可能性があります。別のターミナル(Terminal.app など)から実行してください。"
+  fi
+  rm -f "$test_file" 2>/dev/null || true
+}
+
 # ---- 1台への書き込み --------------------------------------------------------
 # 引数: 表示ラベル, uf2_file のキー
 flash_one() {
@@ -203,6 +219,7 @@ flash_one() {
   local vol
   vol=$(wait_for_bootloader) || die "[$label] ブートローダーを検出できませんでした。"
   ok "[$label] ブートローダー検出: $vol"
+  check_volume_writable "$vol" "$label"
 
   info "[$label] 書き込み中..."
   # XIAO は書き込み完了で自動的にリセット/アンマウントするため、cp の失敗は許容して判定する
