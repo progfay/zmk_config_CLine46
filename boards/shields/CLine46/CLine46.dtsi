@@ -84,8 +84,8 @@
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-charlieplex";
         // d キー等のチャタリング対策でデフォルト値(5ms)から引き上げ
-        debounce-press-ms = <10>;
-        debounce-release-ms = <10>;
+        debounce-press-ms = <15>;
+        debounce-release-ms = <15>;
         gpios
         = <&xiao_d 2 (GPIO_ACTIVE_HIGH)>
         , <&xiao_d 3 (GPIO_ACTIVE_HIGH)>
