@@ -43,7 +43,7 @@ config ZMK_SLEEP
     default y
 
 config ZMK_IDLE_SLEEP_TIMEOUT
-    default 1800000
+    default 3600000
 
 # NiMH (non-LiPo) battery management (両半身共通)
 config ZMK_NON_LIPO_BATTERY_MANAGEMENT
