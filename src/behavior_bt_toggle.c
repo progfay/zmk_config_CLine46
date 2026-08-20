@@ -15,19 +15,15 @@
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
-#if IS_ENABLED(CONFIG_ZMK_BLE)
-#warning "CLINE46_DEBUG: CONFIG_ZMK_BLE is enabled"
-#else
-#warning "CLINE46_DEBUG: CONFIG_ZMK_BLE is NOT enabled"
-#endif
-
-#if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
-#warning "CLINE46_DEBUG: DT_HAS_COMPAT_STATUS_OKAY is enabled"
-#else
-#warning "CLINE46_DEBUG: DT_HAS_COMPAT_STATUS_OKAY is NOT enabled"
-#endif
-
-#if IS_ENABLED(CONFIG_ZMK_BLE) && DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
+/*
+ * zmk_ble_prof_select()/zmk_ble_active_profile_index() (src/ble.c) are only
+ * compiled on the split central: upstream's app/CMakeLists.txt wraps
+ * src/ble.c in `if ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL)`
+ * in addition to `if (CONFIG_ZMK_BLE)`. Mirror that condition here, or the
+ * split peripheral build fails to link even though CONFIG_ZMK_BLE is set.
+ */
+#if (!IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)) &&                \
+    IS_ENABLED(CONFIG_ZMK_BLE) && DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
 
 struct behavior_bt_toggle_config {
     uint8_t profile_a;
@@ -65,4 +61,4 @@ static const struct behavior_driver_api behavior_bt_toggle_driver_api = {
 
 DT_INST_FOREACH_STATUS_OKAY(BT_TOGGLE_INST)
 
-#endif /* IS_ENABLED(CONFIG_ZMK_BLE) && DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT) */
+#endif
