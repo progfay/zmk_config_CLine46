@@ -15,6 +15,18 @@
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
+#if IS_ENABLED(CONFIG_ZMK_BLE)
+#warning "CLINE46_DEBUG: CONFIG_ZMK_BLE is enabled"
+#else
+#warning "CLINE46_DEBUG: CONFIG_ZMK_BLE is NOT enabled"
+#endif
+
+#if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
+#warning "CLINE46_DEBUG: DT_HAS_COMPAT_STATUS_OKAY is enabled"
+#else
+#warning "CLINE46_DEBUG: DT_HAS_COMPAT_STATUS_OKAY is NOT enabled"
+#endif
+
 #if IS_ENABLED(CONFIG_ZMK_BLE) && DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
 
 struct behavior_bt_toggle_config {
