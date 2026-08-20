@@ -15,7 +15,7 @@
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
-#if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
+#if IS_ENABLED(CONFIG_ZMK_BLE) && DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
 
 struct behavior_bt_toggle_config {
     uint8_t profile_a;
@@ -53,4 +53,4 @@ static const struct behavior_driver_api behavior_bt_toggle_driver_api = {
 
 DT_INST_FOREACH_STATUS_OKAY(BT_TOGGLE_INST)
 
-#endif /* DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT) */
+#endif /* IS_ENABLED(CONFIG_ZMK_BLE) && DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT) */
