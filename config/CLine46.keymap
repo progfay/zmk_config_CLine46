@@ -117,6 +117,14 @@
             bindings = <&none>, <&kp LG(LC(L))>;
             positions = <42>;
         };
+
+        // BT_SEL 0 と 1 を1キーでトグル
+        bt_toggle: bt_toggle {
+            compatible = "cline46,behavior-bt-toggle";
+            #binding-cells = <0>;
+            profile-a = <0>;
+            profile-b = <1>;
+        };
     };
 
     combos {
@@ -189,7 +197,7 @@
         layer_4 {
             display-name = "Fn";
             bindings = <
-&kp ESC        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &bt BT_CLR  &trans   &trans   &trans   &kp F17  &kp DELETE
+&kp ESC        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt_toggle                    &bt BT_CLR  &trans   &trans   &trans   &kp F17  &kp DELETE
 &trans         &trans        &trans        &kp F19       &trans        &trans                        &kp F13     &kp F14  &kp F15  &kp F16  &trans   &trans
 &kp LS(GLOBE)  &trans        &trans        &trans        &trans        &trans                        &kp F18     &trans   &trans   &trans   &trans   &trans
                &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans                        &trans   &trans

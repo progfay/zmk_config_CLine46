@@ -1,0 +1,18 @@
+# Copyright (c) 2026 progfay
+# SPDX-License-Identifier: MIT
+
+description: Toggle the active BLE profile between two fixed profile indices
+
+compatible: "cline46,behavior-bt-toggle"
+
+include: zero_param.yaml
+
+properties:
+  profile-a:
+    type: int
+    required: true
+    description: First BLE profile index to toggle between
+  profile-b:
+    type: int
+    required: true
+    description: Second BLE profile index to toggle between

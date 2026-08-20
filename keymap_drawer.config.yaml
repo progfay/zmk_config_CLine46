@@ -32,5 +32,7 @@ parse_config:
     "&gch_ent": "Desktop ←"
     "&gcl_ent": "Desktop →"
 
+    "&bt_toggle": "BT 0⇄1"
+
     "&msc MOVE_DOWN": "Scroll ↓"
     "&msc MOVE_UP": "Scroll ↑"
