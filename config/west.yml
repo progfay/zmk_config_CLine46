@@ -23,9 +23,13 @@ manifest:
       revision: voltage_division
     - name: zmk-pmw3610-driver
       remote: badjeff
-      revision: zmk-0.3
+      # zmk-0.3 は upstream Zephyr の pixart,pmw3610 binding と compatible
+      # 文字列が衝突してビルド不能。main で pixart,pmw3610-alt にリネームされ解消。
+      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: v0.3-branch
+      # v0.3-branch には xiao_ble//zmk (Zephyr v4.1 board variant) 用の
+      # rgbled_adapter overlay が無くビルド不能。main で追加された。
+      revision: main
   self:
     path: config
