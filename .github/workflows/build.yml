@@ -95,7 +95,10 @@ jobs:
           for entry in entries:
               board = entry["board"]
               shield = entry.get("shield") or ""
-              name = entry.get("artifact-name") or f"{shield}{'-' if shield else ''}{board}-zmk"
+              # board names can contain variant slashes (e.g. xiao_ble//zmk);
+              # sanitize for use in a filename.
+              board_slug = board.replace("/", "_")
+              name = entry.get("artifact-name") or f"{shield}{'-' if shield else ''}{board_slug}-zmk"
               print("\x1f".join([
                   board,
                   shield,
