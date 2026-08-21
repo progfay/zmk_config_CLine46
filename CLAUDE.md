@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 CLine46(46キー分割キーボード、Seeed XIAO BLE、右手に PMW3610 トラックボール)の ZMK ファームウェア設定リポジトリ。
 
-**ZMK 本体は progfay/zmk fork(`retro-tap-pointer-cancel-v0.3` ブランチ)を使用している**(`config/west.yml`)。zmkfirmware/zmk v0.3 に「retro-tap をポインタ入力で解除する」パッチを当てたもので、ZMK 更新時はこのブランチを rebase する。
+**ZMK 本体は progfay/zmk fork(`patch` ブランチ)を使用している**(`config/west.yml`)。zmkfirmware/zmk に「retro-tap をポインタ入力で解除する」等の独自パッチを当てたもので、ZMK 更新時はこのブランチを rebase する。
 
 ## ビルド・書き込み
 
