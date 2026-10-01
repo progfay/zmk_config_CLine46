@@ -15,7 +15,9 @@
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
-#if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
+// src/hid.c (and upstream behavior_mod_morph.c) is only compiled on the split central.
+#if (!IS_ENABLED(CONFIG_ZMK_SPLIT) || IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL)) &&                \
+    DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
 
 /*
  * Copy of upstream behavior_mod_morph.c with one change: the masked modifiers
