@@ -12,7 +12,7 @@ layers:
   - I
   - O
   - P
-  - ⌫
+  - ''
   - ⌃
   - A
   - S
@@ -59,7 +59,7 @@ layers:
   - '8'
   - '9'
   - '0'
-  - ⌫
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '4'
   - '5'
@@ -200,7 +200,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - F17
-  - ⌦
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
