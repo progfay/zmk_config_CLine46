@@ -155,7 +155,7 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp TAB     &kp Q  &kp W   &kp E   &kp R     &kp T                                      &kp Y        &kp U     &kp I      &kp O      &kp P      &kp BACKSPACE
+&kp TAB     &kp Q  &kp W   &kp E   &kp R     &kp T                                      &kp Y        &kp U     &kp I      &kp O      &kp P      &none
 &kp LCTRL   &kp A  &kp S   &kp D   &kp F     &kp G                                      &h_morph     &j_morph  &k_morph   &l_morph   &kp SEMI   &none
 &kp LSHIFT  &kp Z  &kp X   &kp C   &kp V     &kp B                                      &kp N        &kp M     &kp COMMA  &kp DOT    &kp SLASH  &none
             &mo 4  &none   &none   &kp LALT  &mt LGUI LANG2  &lt 1 SPACE  &enter_morph  &lt 3 LANG1            &kp MINUS  &kp EQUAL
@@ -166,7 +166,7 @@
         layer_1 {
             display-name = "Num";
             bindings = <
-&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                             &kp N6    &kp N7          &kp N8        &kp N9    &kp N0    &kp BACKSPACE
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                             &kp N6    &kp N7          &kp N8        &kp N9    &kp N0    &trans
 &trans     &kp N4  &kp N5  &kp N6  &mkp LCLK  &mkp RCLK                          &gch_ent  &mkp LCLK       &mkp RCLK     &gcl_ent  &kp SQT   &trans
 &trans     &kp N7  &kp N8  &kp N9  &trans     &kp LBKT                           &kp RBKT  &msc MOVE_DOWN  &msc MOVE_UP  &trans    &kp BSLH  &trans
            &trans  &kp N0  &trans  &trans     &trans     &kp LSHIFT  &kp RSHIFT  &trans                                  &trans    &trans
@@ -199,7 +199,7 @@
         layer_4 {
             display-name = "Fn";
             bindings = <
-&kp ESC        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt_toggle                    &bt BT_CLR  &trans   &trans   &trans   &kp F17  &kp DELETE
+&kp ESC        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt_toggle                    &bt BT_CLR  &trans   &trans   &trans   &kp F17  &trans
 &trans         &trans        &trans        &kp F19       &trans        &trans                        &kp F13     &kp F14  &kp F15  &kp F16  &trans   &trans
 &kp LS(GLOBE)  &trans        &trans        &trans        &trans        &trans                        &kp F18     &trans   &trans   &trans   &trans   &trans
                &trans        &trans        &trans        &trans        &trans        &trans  &trans  &trans                        &trans   &trans
