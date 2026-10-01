@@ -6,7 +6,9 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-// hjkl 用 mod-morph 3 ノード(name_morph / name_gui / name_arrow)を生成する
+// hjkl 用 mod-morph 3 ノード(name_morph / name_gui / name_arrow)を生成する。
+// ctrl をマスクする _arrow は local-morph: 標準 mod-morph だとマスクが離すまで
+// 全キーに効き、ctrl 押下中に l→e とロールすると e が素の e になるため
 #define ARROW_MORPH(name, tap, arrow)                  \
     name##_morph: name##_morph {                       \
         compatible = "zmk,behavior-mod-morph";         \
@@ -23,7 +25,7 @@
         keep-mods = <(MOD_LALT)>;                      \
     };                                                 \
     name##_arrow: name##_arrow {                       \
-        compatible = "zmk,behavior-mod-morph";         \
+        compatible = "cline46,behavior-local-morph";   \
         #binding-cells = <0>;                          \
         bindings = <tap>, <&kp arrow>;                 \
         mods = <(MOD_LCTL|MOD_LALT)>;                  \

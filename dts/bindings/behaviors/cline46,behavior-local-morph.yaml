@@ -1,0 +1,22 @@
+# Copyright (c) 2026 progfay
+# SPDX-License-Identifier: MIT
+
+description: |
+  Mod-morph whose modifier mask only applies to the morph binding's press report.
+  Unlike zmk,behavior-mod-morph, the mask is not held until release, so keys
+  pressed while this one is held keep the physically held modifiers.
+
+compatible: "cline46,behavior-local-morph"
+
+include: zero_param.yaml
+
+properties:
+  bindings:
+    type: phandle-array
+    required: true
+  mods:
+    type: int
+    required: true
+  keep-mods:
+    type: int
+    required: false
