@@ -66,22 +66,22 @@ layers:
   - '6'
   - L Click
   - R Click
-  - Desktop ←
-  - L Click
-  - R Click
-  - Desktop →
+  - {t: ▽, type: trans}
+  - '4'
+  - '5'
+  - '6'
   - ''''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '7'
   - '8'
   - '9'
-  - {t: ▽, type: trans}
   - '['
   - ']'
-  - Scroll ↓
-  - Scroll ↑
-  - {t: ▽, type: trans}
+  - '0'
+  - '1'
+  - '2'
+  - '3'
   - \
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -91,53 +91,6 @@ layers:
   - {t: ▽, type: trans}
   - ⇧
   - ⇧
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  Scroll:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - L Click
-  - R Click
-  - {t: ▽, type: trans}
-  - L Click
-  - R Click
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -158,13 +111,13 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - L Click
+  - R Click
   - ←
   - ↓
   - ↑
   - →
-  - {t: ▽, type: trans}
+  - →
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -238,7 +191,7 @@ layers:
 combos:
 - p: [20, 21]
   k: ⌫
-  l: [Base, Num, Scroll, Arrow]
+  l: [Base, Num, Arrow]
 - p: [20, 21]
   k: ⌦
   l: [Fn]
