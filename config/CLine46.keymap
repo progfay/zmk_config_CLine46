@@ -117,12 +117,11 @@
 
 
         // trackball はこのレイヤーで scroll になる(CLine46_R.overlay の scroller)。
-        // L 長押しで入ると L 位置の → が押せないため SEMI 位置にも → を置く
         layer_2 {
             display-name = "Arrow";
             bindings = <
 &trans  &trans  &trans  &trans  &trans     &trans                        &trans    &trans    &trans  &trans     &trans     &trans
-&trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK                     &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK                     &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans     &trans
 &trans  &trans  &trans  &trans  &trans     &trans                        &trans    &trans    &trans  &trans     &trans     &trans
         &trans  &trans  &trans  &trans     &trans      &trans    &trans  &trans                          &trans     &trans
             >;
