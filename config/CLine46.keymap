@@ -65,8 +65,8 @@
         ARROW_MORPH(l, &lt_l 2 L, RIGHT)
 
         // L(文字キー)専用の layer-tap。グローバル &lt は balanced だが、
-        // L だと "walk"/"self" 等の内側ロールで layer 2 に誤爆して
-        // クリックが発火するため、L だけ tap-preferred を維持する
+        // L だと "walk"/"self" 等の内側ロールで layer 2 (Arrow) に誤爆して
+        // 矢印が出るため、L だけ tap-preferred を維持する
         lt_l: lt_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -119,15 +119,15 @@
             timeout-ms = <50>;
             key-positions = <20 21>;
             bindings = <&kp BACKSPACE>;
-            layers = <0 1 2 3>;
+            layers = <0 1 2>;
         };
 
-        // K + L while holding &mo 4 (Fn layer) -> delete
+        // K + L while holding &mo 3 (Fn layer) -> delete
         combo_delete {
             timeout-ms = <50>;
             key-positions = <20 21>;
             bindings = <&kp DELETE>;
-            layers = <4>;
+            layers = <3>;
         };
     };
 
@@ -140,7 +140,7 @@
 &kp TAB     &kp Q  &kp W   &kp E   &kp R     &kp T                                      &kp Y        &kp U     &kp I      &kp O      &kp P      &none
 &kp LCTRL   &kp A  &kp S   &kp D   &kp F     &kp G                                      &h_morph     &j_morph  &k_morph   &l_morph   &kp SEMI   &none
 &kp LSHIFT  &kp Z  &kp X   &kp C   &kp V     &kp B                                      &kp N        &kp M     &kp COMMA  &kp DOT    &kp SLASH  &none
-            &mo 4  &none   &none   &kp LALT  &mt LGUI LANG2  &lt 1 SPACE  &enter_morph  &lt 3 LANG1            &kp MINUS  &kp EQUAL
+            &mo 3  &none   &none   &kp LALT  &mt LGUI LANG2  &lt 1 SPACE  &enter_morph  &lt 2 LANG1            &kp MINUS  &kp EQUAL
             >;
         };
 
@@ -156,29 +156,20 @@
         };
 
 
+        // trackball はこのレイヤーで scroll になる(CLine46_R.overlay の scroller)。
+        // L 長押しで入ると L 位置の → が押せないため SEMI 位置にも → を置く
         layer_2 {
-            display-name = "Scroll";
+            display-name = "Arrow";
             bindings = <
-&trans  &trans  &trans  &trans  &trans     &trans                        &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK                     &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans     &trans                        &trans  &trans     &trans     &trans  &trans  &trans
-        &trans  &trans  &trans  &trans     &trans      &trans    &trans  &trans                        &trans  &trans
+&trans  &trans  &trans  &trans  &trans     &trans                        &trans    &trans    &trans  &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK                     &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp RIGHT  &trans
+&trans  &trans  &trans  &trans  &trans     &trans                        &trans    &trans    &trans  &trans     &trans     &trans
+        &trans  &trans  &trans  &trans     &trans      &trans    &trans  &trans                          &trans     &trans
             >;
         };
 
 
         layer_3 {
-            display-name = "Arrow";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans    &trans    &trans  &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans    &trans    &trans  &trans     &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                      &trans     &trans
-            >;
-        };
-
-
-        layer_4 {
             display-name = "Fn";
             bindings = <
 &kp ESC        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt_toggle                    &bt BT_CLR  &trans   &trans   &trans   &kp F17  &trans
@@ -189,9 +180,9 @@
         };
 
 
-        // unused layer (layer_5, 6 are available)
+        // unused layer (layer_4, 5 are available)
         /*
-        layer_5 {
+        layer_4 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
