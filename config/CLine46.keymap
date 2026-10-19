@@ -126,6 +126,14 @@
             layers = <0 1 2>;
         };
 
+        // Fn + 右隣 -> ctrl+alt+z (音声入力)
+        combo_voice {
+            timeout-ms = <50>;
+            key-positions = <36 37>;
+            bindings = <&kp LC(LA(Z))>;
+            layers = <0>;
+        };
+
         // K + L while holding &mo 3 (Fn layer) -> delete
         combo_delete {
             timeout-ms = <50>;
