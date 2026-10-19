@@ -51,24 +51,6 @@
             keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
         };
 
-        // z を 2 回タップで大文字 Z
-        td_z: td_z {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp Z>, <&kp LS(Z)>;
-        };
-
-        // z: hold で shift、double tap で Z
-        z_ht: z_ht {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            bindings = <&kp>, <&td_z>;
-        };
-
         // hjkl morph into alt+arrows while ALT is held.
         ARROW_MORPH(h, &kp H,   LEFT)
         ARROW_MORPH(j, &kp J,   DOWN)
@@ -151,7 +133,7 @@
             bindings = <
 &kp TAB     &q_morph  &kp W   &kp E   &kp R     &kp T                                      &kp Y        &kp U     &kp I      &kp O      &kp P      &none
 &kp LCTRL   &kp A  &kp S   &kp D   &kp F     &kp G                                      &h_morph     &j_morph  &k_morph   &l_morph   &kp SEMI   &none
-&kp LSHIFT  &z_ht LSHIFT 0 &kp X   &kp C   &kp V     &kp B                                      &kp N        &kp M     &kp COMMA  &kp DOT    &kp SLASH  &none
+&kp LSHIFT  &kp Z  &kp X   &kp C   &kp V     &kp B                                      &kp N        &kp M     &kp COMMA  &kp DOT    &kp SLASH  &none
             &mo 3  &none   &none   &kp LALT  &mt LGUI LANG2  &lt 1 SPACE  &enter_morph  &lt 2 LANG1            &kp MINUS  &kp EQUAL
             >;
         };
