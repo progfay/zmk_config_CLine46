@@ -22,6 +22,7 @@ parse_config:
 
     "&enter_morph": { t: "⏎", h: "Num" }
     "&q_morph": { t: "q", h: "⎋" }
+    "&z_ht LSHIFT": { t: "z", h: "⇧" }
     "&h_morph": { t: "h", h: "←" }
     "&j_morph": { t: "j", h: "↓" }
     "&k_morph": { t: "k", h: "↑" }
