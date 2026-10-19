@@ -142,7 +142,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   Fn:
-  - ⎋
+  - {t: ▽, type: trans}
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
@@ -166,7 +166,7 @@ layers:
   - F16
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Sft+GLOBE
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -192,6 +192,12 @@ combos:
 - p: [20, 21]
   k: ⌫
   l: [Base, Num, Arrow]
+- p: [13, 14]
+  k: ⌃
+  l: [Base, Num, Arrow]
+- p: [36, 37]
+  k: Dictate
+  l: [Base]
 - p: [20, 21]
   k: ⌦
   l: [Fn]
