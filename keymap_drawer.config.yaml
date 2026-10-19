@@ -12,7 +12,7 @@ parse_config:
     "&kp BACKSPACE": "⌫"
     "&kp DELETE": "⌦"
     "&kp ESC": "⎋"
-    "&kp LC(LA(Z))": "Dictate"
+    "&kp LC(LA(Z))": "🎙︎"
 
     "&kp LEFT": "←"
     "&kp DOWN": "↓"
