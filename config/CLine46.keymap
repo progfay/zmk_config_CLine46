@@ -51,8 +51,16 @@
             keep-mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
         };
 
+        // Cmd 押下中は H を無効化(Cmd+H = アプリを隠す を誤爆させない)
+        h_nocmd: h_nocmd {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&none>;
+            mods = <(MOD_LGUI)>;
+        };
+
         // hjkl morph into alt+arrows while ALT is held.
-        ARROW_MORPH(h, &kp H,   LEFT)
+        ARROW_MORPH(h, &h_nocmd, LEFT)
         ARROW_MORPH(j, &kp J,   DOWN)
         ARROW_MORPH(k, &kp K,   UP)
         ARROW_MORPH(l, &lt_l 2 L, RIGHT)
